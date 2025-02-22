@@ -4,57 +4,99 @@
             "id": "1",
             "src": "./img/product-chain-1.png",
             "title": "Front-End",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+            "description": "I have learned about front-end technologies like HTML, CSS, JavaScript, React, Redux, and many more. I have also worked on many projects using these technologies."
         },
         {
             "id": "2",
             "src": "./img/tag-1.png",
             "title": "Back-End",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+            "description": "I have learned about back-end technologies like Node.js, Express.js, MongoDB, and many more. I have also worked on many projects using these technologies."
         },
         {
             "id": "3",
             "src": "./img/feather-pen-2.png",
             "title": "UI & UX Design",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+            "description": "I have learned about UI & UX design. I have also worked on many projects using Figma, and many more.About this feild i can design the website and the app.This feild is mind blowing."
         },
         {
             "id": "4",
             "src": "./img/feather-pen-1.png",
-            "title": "Webflow Development",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+            "title": "Aws Technicals",
+            "description": "I have learned about AWS technicals like AWS Amplify, AWS S3, AWS Lambda, and many more. I have also worked on many projects."
         },
         {
             "id": "5",
+            "src": "./img/tag-1.png",
+            "title": "Python",
+            "description": "I have learned about Python.I Know the basics of python and can work on the task is given."
+        },
+        {
+            "id": "6",
+            "src": "./img/tag-1.png",
+            "title": "Java/Cpp",
+            "description": "I have learned Java and cpp at a intermidate level and i can work on the task is given."
+        },
+        {
+            "id": "7",
+            "src": "./img/feather-pen-1.png",
+            "title": "Database",
+            "description": "I have worked on Mongo Db and SQL and i can work on the database management system."
+        },
+        {
+            "id": "8",
             "src": "./img/product-chain-1.png",
-            "title": "Fronted-End",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+            "title": "Power BI",
+            "description": "I can work on power Bi of managing the data and providing a report to the client."
         }
     ],
     "portfolio": [
         {
             "id": "1",
             "src": "./img/placeholder-image.png",
-            "title": "Restaurant Menu ",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
+            "title": "Restaurant Menu App ",
+            "description": "This is made on react js and this contains the menu of the restaurant and the user can see the item and the price of the item.This is a simple app.For beginners.",
             "link": "View Site",
-            "link2": "https://main.d2kqxbpyahz7xe.amplifyapp.com/"
+            "link2": "https://mayuri-opal.vercel.app/"
         },
         {
             "id": "2",
             "src": "./img/placeholder-image-1.png",
-            "title": "App Dashboard",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
-            "link": "View In Github",
-            "link2": "https://www.youtube.com/watch?v=W4O98sbGpMc"
+            "title": "Waste Management System",
+            "description": "A typescript project using AI. User can upload the image of the waste and the Ai will verify it about the waste and the user can make points.",
+            "link": "View code",
+            "link2": "https://github.com/NamanChaturvedii/managewaste"
         },
         {
             "id": "3",
             "src": "./img/placeholder-image-2.png",
-            "title": "Easy Rentn",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
-            "link": "View In Github",
-            "link2": "https://main.d2kqxbpyahz7xe.amplifyapp.com/"
+            "title": "Finance App",
+            "description": "This app has the database defined in the internal storage..With use of mordern techinques the user can get the next year predications too.This contains all the expenses of the user.",
+            "link": "View code",
+            "link2": "https://github.com/NamanChaturvedii/finanaceapp"
+        },
+        {
+            "id": "3",
+            "src": "./img/placeholder-image.png",
+            "title": "Wedding Itenary App",
+            "description": "This app has the database defined in the internal storage..With use of mordern techinques the user can get the next year predications too.This contains all the expenses of the user.",
+            "link": "View site",
+            "link2": "https://wedding-dun-sigma.vercel.app/"
+        },
+        {
+            "id": "3",
+            "src": "./img/placeholder-image-1.png",
+            "title": "E-commerce App",
+            "description": "This app has the database defined in the internal storage..With use of mordern techinques the user can get the next year predications too.This contains all the expenses of the user.",
+            "link": "View video",
+            "link2": "https://github.com/NamanChaturvedii/Website"
+        },
+        {
+            "id": "3",
+            "src": "./img/placeholder-image-2.png",
+            "title": "Portfolio App",
+            "description": "This app has the database defined in the internal storage..With use of mordern techinques the user can get the next year predications too.This contains all the expenses of the user.",
+            "link": "View site",
+            "link2": "https://portfolio-namanchaturvediis-projects.vercel.app/"
         }
     ],
     "testimonial": [

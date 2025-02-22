@@ -103,7 +103,7 @@ function Footer() {
                         </li> */}
                         <li>
                             <a
-                                href="https://www.instagram.com/naman__692/"
+                                href="https://www.instagram.com/naman_chaturvedi__/"
                                 className="navbar--content"
                                 target="_blank"
                                 rel="noreferrer"

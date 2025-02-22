@@ -8,8 +8,9 @@ export default function MyPortfolio() {
         <section className="portfolio--section" id="MyPortfolio">
             <div className="portfolio--container-box">
                 <div className="portfolio--container">
-                    <p className="sub--title">Recent Projects</p>
-                    <h2 className="section--heading">My Portfolio</h2>
+                    <p className="section--title">Recent Projects</p>
+                    <p className="skills--section--heading">My Portfolio</p>
+                    <p className="section--title">(Projects with star in github.)</p>
                 </div>
                 <div>
                     <button className="btn btn-github" onClick={()=> {
@@ -33,9 +34,9 @@ export default function MyPortfolio() {
                     </button>
                 </div>
             </div>
-            <div className="portfolio--section--container">
+            <div className="skills--section--container">
                 {data?.portfolio?.map((item, index) => (
-                    <div key={index} className="portfolio--section--card">
+                    <div key={index} className="skills--section--title">
                         <div className="portfolio--section--img">
                             <img src={item.src} alt="Placeholder" />
                         </div>
