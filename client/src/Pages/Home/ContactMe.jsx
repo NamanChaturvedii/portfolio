@@ -25,7 +25,7 @@ export default function ContactMe() {
                 number,
                 topic,
                 message}
-            const res=await axios.post(`http://localhost:5000/api/v1/auth/register`,
+            const res=await axios.post(`https://portfolio-sc72.onrender.com/api/v1/auth/register`,
                 data
             )
             if(res.data.success){
