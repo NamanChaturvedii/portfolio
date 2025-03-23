@@ -14,7 +14,7 @@ export default function HeroSection() {
                     </h1>
                     <p className="hero--section-description" style={{fontStyle:"oblique"}}>
                         I have been working on projects as a full stack developer for past time. Now I am learning about Data Engineering for the last few months and have knowledge of it.
-                        <br /> I am looking for a job as a full stack developer or Data Engineer.
+                        <br /> I am looking for a job as a full stack developer or a Data Engineer.
                     </p>
                 </div>
 
@@ -35,7 +35,7 @@ export default function HeroSection() {
                 </div>
             </div>
             <div className="hero--section--img ">
-                <img src="./img/main.jpg" alt="Hero Section" />
+                <img src="./img/orname1.JPG" alt="Hero Section" />
             </div>
         </section>
     );
