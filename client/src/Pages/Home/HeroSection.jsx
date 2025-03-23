@@ -22,13 +22,13 @@ export default function HeroSection() {
                 <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
                     <button 
                         className="btn btn-primary" 
-                        onClick={() => window.open("https://drive.google.com/file/d/1yy2DFpGd11N_uqdF8_haicB9AnSsWJND/view?usp=sharing")}
+                        onClick={() => window.open("https://drive.google.com/drive/folders/1ieAACMUKzl9OaFIrel-aV7uQ5UaUsT5x?usp=sharing")}
                     >
                         Get Resume
                     </button>  
                     <button 
                         className="btn btn-primary" 
-                        onClick={() => window.open("https://drive.google.com/drive/u/0/folders/1kKFffp0NkT-I_vj_CcRonz1XpWDp6gLT")}
+                        onClick={() => window.open("https://drive.google.com/drive/folders/1kKFffp0NkT-I_vj_CcRonz1XpWDp6gLT?usp=sharing")}
                     >
                         Get Certificates
                     </button>  
