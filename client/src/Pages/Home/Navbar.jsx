@@ -34,11 +34,11 @@ function Navbar() {
 
     return (
         <nav className={`navbar ${navActive ? "active" : ""}`}>
-            <div>
+            <div className="logo-image">
                 {/* <img src="./img/logo.svg" alt="Logoipsum" /> */}
-                <p style={{fontFamily:"italic",fontWeight:"bold",fontSize:"20px",cursor:"pointer"}}  onClick={(e)=>{
+                <p  style={{fontFamily:"italic",fontWeight:"bold",fontSize:"20px",cursor:"pointer"}}  onClick={(e)=>{
                     document.getElementById("heroSection").scrollIntoView({behavior: "smooth"})
-                }}><img src="./img/name2.png" alt="Logoipsum" style={{width:"24%",aspectRatio:"3/1",objectFit:"cover"}} /></p>
+                }}><img  src="./img/name2.png" alt="Logoipsum" style={{width:"24%",aspectRatio:"4/1",objectFit:"cover"}}  /></p>
             </div>
             <a
                 className={`nav__hamburger ${navActive ? "active" : ""}`}

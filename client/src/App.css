@@ -460,6 +460,12 @@ h2 {
     stroke: #006b6a;
 }
 
+
+/* new nav */
+
+
+
+
 /* Portfolio Ends */
 
 /* Testimonial */
@@ -672,6 +678,8 @@ input[type="checkbox"] {
         font-size: 28px;
         line-height: 40px;
     }
+
+
 }
 
 @media only screen and (max-width: 1600px) {
@@ -701,12 +709,39 @@ input[type="checkbox"] {
         font-size: 17.333px;
         line-height: 27px;
     }
+
+
 }
 
 @media only screen and (max-width: 1200px) {
     .btn-outline-primary {
         display: none;
     }
+
+
+    .hero--section--img img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.hero--section--img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.hero--section {
+    overflow-x: hidden; /* Prevents side scroll */
+}
+
+
+
+
 
     .hero--section {
         display: flex;
