@@ -22,7 +22,7 @@ export default function HeroSection() {
                 <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
                     <button 
                         className="btn btn-primary" 
-                        onClick={() => window.open("https://drive.google.com/drive/folders/1ieAACMUKzl9OaFIrel-aV7uQ5UaUsT5x?usp=sharing")}
+                        onClick={() => window.open("https://github.com/NamanChaturvedii/Resume/blob/main/Naman%20Chaturvedi%20Resume%20VIT.pdf")}
                     >
                         Get Resume
                     </button>  
