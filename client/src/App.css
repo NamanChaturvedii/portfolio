@@ -155,7 +155,7 @@ h2 {
 }
 
 /* Section Titles */
-/* Skills & About Me */
+/* Skills &   Me */
 .section--title {
     color: var(--heading-color);
     font-size: 21px;
@@ -179,16 +179,25 @@ h2 {
 
 /* Navbar Style Start */
 .navbar {
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     padding: 15px 85.333px;
+
     background: var(--white);
-    box-shadow: 0px 5.333px 80px 0 rgba(0, 0, 0, 0.1);
+
+    box-shadow: 0px 5.333px 80px rgba(0,0,0,0.1);
+
     position: fixed;
+
     top: 0;
     left: 0;
     right: 0;
+
+    z-index: 9999;   /* ⭐ MOST IMPORTANT FIX */
+
 }
 
 .navbar--items>ul {
@@ -306,74 +315,448 @@ h2 {
 }
 
 .skills--section--card {
+
+    position: relative;
+
     display: flex;
     padding: 32px;
     flex-direction: column;
     align-items: flex-start;
     gap: 32px;
-    flex: 1 0 0;
-    border-radius: 10.6px;
-    background: var(--pp);
-    min-height: 250px;
+
+    border-radius: 16px;
+
+    background: linear-gradient(
+        145deg,
+        #ffffff,
+        #f4f4ff
+    );
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+
+    transition: all 0.4s ease;
+
+    overflow: hidden;
 }
+
+
+/* Hover Main Effect */
 
 .skills--section--card:hover {
-    border-bottom: 4px solid var(--primary);
+
+    transform: translateY(-12px);
+
+    box-shadow:
+        0 20px 50px rgba(94, 59, 238, 0.25);
+
 }
 
-.skills--section--card:hover .skills--section--description {
-    color: var(--darkblue);
+
+/* Animated Gradient Border Effect */
+
+.skills--section--card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 16px;
+
+    padding: 2px;
+
+    background: linear-gradient(
+        135deg,
+        #5e3bee,
+        #8b5cf6,
+        #6366f1
+    );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+
+    mask-composite: exclude;
+
+    opacity: 0;
+
+    transition: opacity 0.4s ease;
+
 }
+
+
+.skills--section--card:hover::before {
+
+    opacity: 1;
+
+}
+
+
+/* Icon Animation */
 
 .skills--section--img {
-    display: flex;
-    padding: 13.3px;
-    justify-content: center;
-    align-items: center;
-    gap: 13.3px;
-    border-radius: 10.6px;
-    background: #fff;
-    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.1);
+
+    transition: transform 0.4s ease;
+
 }
 
-.skills--section--card--content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 32px;
-    align-self: stretch;
+
+.skills--section--card:hover .skills--section--img {
+
+    transform: scale(1.15) rotate(5deg);
+
 }
+
+
+/* Title Effect */
 
 .skills--section--title {
-    color: var(--heading-color);
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 45px;
+
+    transition: color 0.3s ease;
+
 }
+
+
+.skills--section--card:hover .skills--section--title {
+
+    color: var(--primary);
+
+}
+
+
+/* Description Slight Fade */
 
 .skills--section--description {
-    color: var(--black);
-    font-size: 21.3px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 32px;
+
+    transition: color 0.3s ease;
+
 }
 
-/* Skills Style Ends */
 
-/* About Us */
+.skills--section--card:hover .skills--section--description {
+
+    color: #333;
+
+}
+
+/* ===== PREMIUM SKILLS HEADER ===== */
+
+.skills-header {
+    margin-bottom: 60px;
+}
+
+/* Small Subtitle */
+
+.skills-subtitle {
+
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: var(--primary);
+
+    position: relative;
+
+    display: inline-block;
+
+}
+
+
+/* Animated underline for subtitle */
+
+.skills-subtitle::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -6px;
+
+    width: 40px;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        #5e3bee,
+        #8b5cf6
+    );
+
+    border-radius: 2px;
+
+    transition: width 0.4s ease;
+
+}
+
+.skills-header:hover .skills-subtitle::after {
+    width: 70px;
+}
+
+
+/* Main Heading */
+
+.skills-main-title {
+
+    font-size: 48px;   /* reduced from 64 */
+
+    font-weight: 800;
+
+    margin-top: 12px;
+
+    line-height: 1.2;
+
+    background: linear-gradient(
+        90deg,
+        #1c1e53,
+        #5e3bee,
+        #8b5cf6
+    );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    letter-spacing: -0.5px;
+
+    position: relative;
+
+}
+
+/* ===== ABOUT SECTION ===== */
+
 .about--section {
-    display: grid;
-    padding: 133.3px 85.3px;
-    align-items: center;
-    gap: 114.6px;
-    grid-template-columns: repeat(2, 1fr);
+
+display: grid;
+
+grid-template-columns: repeat(2, 1fr);
+
+align-items: center;
+
+gap: 80px;
+
+padding: 120px 85px;
+
+background-color: var(--bg-shade);
+
 }
 
-.about--section--img>img {
-    width: 100%;
-    height: 100%;
-    border-radius: 750px;
+
+/* Image container */
+
+.about--section--img {
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+}
+
+
+/* Image size control */
+
+.about--section--img img {
+
+width: 500px;
+
+height: 550px;
+
+object-fit: cover;
+
+border-radius: 20px;
+
+box-shadow:
+0 20px 50px rgba(0,0,0,0.15);
+
+transition: 0.4s ease;
+
+}
+
+
+/* Hover lift */
+
+.about--section--img img:hover {
+
+transform: translateY(-10px);
+
+box-shadow:
+0 25px 60px rgba(94,59,238,0.25);
+
+}
+
+
+/* About text spacing */
+
+.about--section--box {
+
+gap: 20px;
+
+}
+
+/* ===== CONTACT SECTION UPGRADE ===== */
+
+.contact--section {
+
+background: linear-gradient(
+180deg,
+#fffaff,
+#f5fcff
+);
+
+border-radius: 20px;
+
+margin: 80px 85px;
+
+box-shadow:
+0 15px 40px rgba(0,0,0,0.08);
+
+transition:0.4s ease;
+
+}
+
+
+/* Hover lift subtle */
+
+.contact--section:hover{
+
+transform:translateY(-6px);
+
+box-shadow:
+0 25px 60px rgba(94,59,238,0.18);
+
+}
+
+
+/* Heading Gradient */
+
+.contact--section h2{
+
+margin-top:12px;
+
+font-size:48px;
+
+font-weight:800;
+
+background: linear-gradient(
+90deg,
+#1c1e53,
+#5e3bee,
+#8b5cf6
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+position:relative;
+
+}
+
+
+/* underline */
+
+.contact--section h2::after{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+transform:translateX(-50%);
+
+bottom:-10px;
+
+width:60px;
+
+height:3px;
+
+background:linear-gradient(
+90deg,
+#5e3bee,
+#8b5cf6
+);
+
+border-radius:4px;
+
+}
+
+
+/* subtitle */
+
+.contact--section .sub--title{
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+color:var(--primary);
+
+}
+
+
+/* Email Phone Box */
+
+.contact--section div:nth-child(2){
+
+margin-top:25px;
+
+background:white;
+
+padding:25px 35px;
+
+border-radius:12px;
+
+box-shadow:
+0 8px 25px rgba(0,0,0,0.08);
+
+transition:0.3s;
+
+}
+
+
+/* Hover highlight */
+
+.contact--section div:nth-child(2):hover{
+
+box-shadow:
+0 15px 40px rgba(94,59,238,0.2);
+
+color:var(--primary);
+
+}
+
+
+/* underline smaller */
+
+.skills-main-title::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -8px;
+
+    width: 60px;
+
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        #5e3bee,
+        #8b5cf6
+    );
+
+    border-radius: 4px;
+
 }
 
 /* About Us Ends */
@@ -436,7 +819,7 @@ h2 {
 
 .portfolio--section--card--content {
     display: flex;
-    padding: 32px;
+    padding: 28px;
     flex-direction: column;
     align-items: flex-start;
     gap: 32px;
@@ -458,6 +841,162 @@ h2 {
 
 .portfolio--section--card:hover path {
     stroke: #006b6a;
+}
+
+/* ===== Portfolio Heading Same As Expertise ===== */
+
+.portfolio-header{
+
+margin-bottom:40px;
+
+}
+
+
+/* Subtitle */
+
+.portfolio-subtitle{
+
+font-size:16px;
+
+font-weight:600;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+color:var(--primary);
+
+position:relative;
+
+display:inline-block;
+
+}
+
+
+/* underline */
+
+.portfolio-subtitle::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-6px;
+
+width:40px;
+
+height:3px;
+
+background:linear-gradient(
+90deg,
+#5e3bee,
+#8b5cf6
+);
+
+border-radius:2px;
+
+}
+
+
+/* Main Title */
+
+.portfolio-main-title{
+
+font-size:48px;
+
+font-weight:800;
+
+margin-top:12px;
+
+line-height:1.2;
+
+background:linear-gradient(
+90deg,
+#1c1e53,
+#5e3bee,
+#8b5cf6
+);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+position:relative;
+
+}
+
+
+/* underline */
+
+.portfolio-main-title::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-8px;
+
+width:60px;
+
+height:3px;
+
+background:linear-gradient(
+90deg,
+#5e3bee,
+#8b5cf6
+);
+
+border-radius:4px;
+
+}
+
+
+/* small line */
+
+.portfolio-smallline{
+
+margin-top:10px;
+
+font-weight:500;
+
+color:#444;
+
+}
+
+
+/* ===== FLOAT EFFECT ONLY ===== */
+
+.portfolio--section--card{
+
+display:flex;
+
+flex-direction:column;
+
+background:#fff;
+
+border-radius:12px;
+
+box-shadow:
+0 0 32px rgba(0,0,0,0.15);
+
+transition:all 0.35s ease;
+
+cursor:pointer;
+
+}
+
+
+.portfolio--section--card:hover{
+
+transform:translateY(-12px);
+
+box-shadow:
+0 20px 45px rgba(94,59,238,0.25);
+
 }
 
 
@@ -907,6 +1446,603 @@ input[type="checkbox"] {
     .nav__hamburger.active :nth-child(3) {
         transform: rotate(-45deg) translate(0.45rem, -0.1875rem);
     }
+}
+
+/* ============================= */
+/* ===== GLOBAL MOBILE FIX ===== */
+/* ============================= */
+
+@media (max-width: 1024px) {
+
+  /* Remove horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Reduce global padding */
+  .hero--section,
+  .skills--section,
+  .portfolio--section,
+  .about--section,
+  .contact--section {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+  }
+
+}
+
+
+/* ============================= */
+/* ===== HERO MOBILE ===== */
+/* ============================= */
+
+@media (max-width: 900px) {
+
+  .hero--section {
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+    padding-top: 120px;
+  }
+
+  .hero--section--title {
+    font-size: 40px !important;
+    line-height: 48px !important;
+  }
+
+  .hero--section-description {
+    font-size: 18px !important;
+    padding-left: 0 !important;
+  }
+
+  .hero--section-description::before {
+    display: none;
+  }
+
+@media (max-width: 900px) {
+
+  .hero--section--img img {
+
+      width: 100% !important;
+      height: auto !important;
+      max-width: 300px;
+
+      border-radius: 50% !important;   /* keep round */
+
+      aspect-ratio: 1 / 1;             /* keeps perfect circle */
+
+      object-fit: cover;
+
+  }
+
+}
+
+}
+
+
+/* ============================= */
+/* ===== SKILLS MOBILE ===== */
+/* ============================= */
+
+@media (max-width: 900px) {
+
+  .skills--section--container {
+    grid-template-columns: 1fr !important;
+  }
+
+  .skills-main-title {
+    font-size: 34px !important;
+    text-align: center;
+  }
+
+  .skills-subtitle {
+    text-align: center;
+  }
+
+  .skills--section {
+    align-items: center;
+  }
+
+}
+
+
+/* ============================= */
+/* ===== ABOUT MOBILE ===== */
+/* ============================= */
+
+@media (max-width: 900px) {
+
+  .about--section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about--section--img img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 350px;
+  }
+
+}
+
+
+/* ============================= */
+/* ===== PORTFOLIO MOBILE ===== */
+/* ============================= */
+
+@media (max-width: 900px) {
+
+  .portfolio--section--container,
+  .skills--section--container {
+    flex-direction: column !important;
+    align-items: center;
+  }
+
+  .portfolio--section--card {
+    width: 100% !important;
+    max-width: 400px;
+  }
+
+  .portfolio-main-title {
+    font-size: 34px !important;
+    text-align: center;
+  }
+
+  .portfolio-header {
+    text-align: center;
+  }
+
+  .portfolio--container-box {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+}
+
+
+/* ============================= */
+/* ===== CONTACT MOBILE ===== */
+/* ============================= */
+
+@media (max-width: 900px) {
+
+  .contact--section {
+    margin: 40px 20px !important;
+    text-align: center;
+  }
+
+  .contact--section h2 {
+    font-size: 34px !important;
+  }
+
+}
+
+/* =============================== */
+/* MOBILE FLOAT EFFECT */
+/* =============================== */
+
+@media (hover: none) and (pointer: coarse) {
+
+/* Skills Cards */
+
+.skills--section--card {
+
+animation: mobileFloat 4s ease-in-out infinite;
+
+}
+
+
+/* Portfolio Cards */
+
+.portfolio--section--card {
+
+animation: mobileFloat 4.5s ease-in-out infinite;
+
+}
+
+
+/* Buttons */
+
+.btn {
+
+animation: mobileFloatSmall 5s ease-in-out infinite;
+
+}
+
+}
+
+
+/* Floating Animation */
+
+@keyframes mobileFloat {
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+
+/* Button smaller float */
+
+@keyframes mobileFloatSmall {
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-4px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* ========================== */
+/* MOBILE TEXT BALANCE FIX */
+/* ========================== */
+
+@media (max-width: 900px) {
+
+/* Hero + About paragraphs */
+
+.hero--section-description {
+
+text-align: justify;   /* balances lines */
+
+text-justify: inter-word;
+
+line-height: 1.8;
+
+font-size: 17px !important;
+
+max-width: 95%;
+
+margin-left: auto;
+margin-right: auto;
+
+word-break: normal;
+
+overflow-wrap: break-word;
+
+hyphens: auto;  /* better word splitting */
+
+}
+
+
+/* About section heading spacing */
+
+.about--section .hero--section--content {
+
+align-items: center;
+
+}
+
+
+/* Contact paragraph */
+
+.contact--section .text-lg {
+
+text-align: center;
+
+padding: 0 10px;
+
+}
+
+}
+
+/* ===== ABOUT TEXT PREMIUM FONT ===== */
+
+.about-description{
+
+font-family: "Roboto", sans-serif;
+
+font-size: 20px;
+
+line-height: 1.9;
+
+color: var(--darkblue);
+
+font-weight: 400;
+
+letter-spacing: 0.3px;
+
+max-width: 650px;
+
+margin-bottom: 18px;
+
+}
+
+
+/* Better spacing */
+
+.about--section--content{
+
+gap:18px;
+
+}
+
+
+/* Mobile perfection */
+
+@media (max-width:900px){
+
+.about-description{
+
+font-size:17px;
+
+line-height:1.8;
+
+text-align:justify;
+
+text-wrap:balance;
+
+}
+
+}
+
+/* ===== ABOUT TEXT WITH ACCENT LINE ===== */
+
+.about-description{
+
+position: relative;
+
+font-family: "Roboto", sans-serif;
+
+font-size: 20px;
+
+line-height: 1.9;
+
+color: var(--darkblue);
+
+font-weight: 400;
+
+letter-spacing: 0.3px;
+
+max-width: 650px;
+
+padding-left: 22px;   /* space for line */
+
+margin-bottom: 18px;
+
+}
+
+
+/* Purple Line */
+
+.about-description::before{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+top:8px;
+
+height:85%;
+
+width:4px;
+
+border-radius:4px;
+
+background: linear-gradient(
+180deg,
+#5e3bee,
+#8b5cf6
+);
+
+}
+
+
+/* Mobile Perfect */
+
+@media (max-width:900px){
+
+.about-description{
+
+font-size:17px;
+
+line-height:1.8;
+
+text-align:justify;
+
+padding-left:16px;
+
+}
+
+.about-description::before{
+
+height:90%;
+
+}
+
+}
+
+/* Equal Skill Card Height */
+
+.skills--section--card{
+
+min-height: 320px;
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+
+/* Equal Portfolio Card Height */
+
+.portfolio--section--card{
+
+min-height: 420px;
+
+display:flex;
+
+flex-direction:column;
+
+}
+/* =============================== */
+/* EQUAL HEIGHT FOR PORTFOLIO */
+/* =============================== */
+
+.portfolio--section--card{
+
+min-height: 420px;   /* Adjust if needed */
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: space-between;
+
+}
+
+
+/* Make content take full space */
+
+.portfolio--section--card--content{
+
+flex: 1;
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: space-between;
+
+}
+
+/* ================================= */
+/* PORTFOLIO PERFECT GRID FIX */
+/* ================================= */
+
+/* Make portfolio grid stretch properly */
+
+/* ================================= */
+/* EXPERTISE PERFECT GRID */
+/* ================================= */
+
+.skills--section--container{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:42px;
+
+align-items:stretch;
+
+}
+
+
+/* Tablet */
+
+@media (max-width:1200px){
+
+.skills--section--container{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+
+/* Mobile */
+
+@media (max-width:700px){
+
+.skills--section--container{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+/* Each card fills full height */
+
+.portfolio--section--card{
+
+display:flex;
+
+flex-direction:column;
+
+height:100%;
+
+min-height:460px;
+
+transition:all 0.35s ease;
+
+}
+
+
+/* Image area fixed height */
+
+.portfolio--section--img{
+
+height:200px;
+
+overflow:hidden;
+
+border-top-left-radius:12px;
+
+border-top-right-radius:12px;
+
+}
+
+
+/* Make image fill properly */
+
+.portfolio--section--img img{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+}
+
+
+/* Content fills remaining space */
+
+.portfolio--section--card--content{
+
+flex:1;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:space-between;
+
+}
+@media (max-width: 1200px) {
+  .skills--section--container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .skills--section--container {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Responsive Screens Ends*/

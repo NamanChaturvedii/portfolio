@@ -1,42 +1,93 @@
-import { Link } from "react-router-dom";
-import ContactMe from "./ContactMe";
+import "./HeroSection.css";
 
 export default function HeroSection() {
+
     return (
+
         <section id="heroSection" className="hero--section">
+
             <div className="hero--section--content--box">
+
                 <div className="hero--section--content">
-                    <p className="section--title">Hello, I'm Naman Chaturvedi</p>
-                    <h1 className="hero--section--title">
-                        <span className="hero--section-title--color">Full Stack</span>{" "}
-                        <br />
-                        Developer
-                    </h1>
-                    <p className="hero--section-description" style={{fontStyle:"oblique"}}>
-                        I have been working on projects as a full stack developer for past time. Now I am learning about Data Engineering for the last few months and have knowledge of it.
-                        <br /> I am looking for a job as a full stack developer or a Data Engineer.
+
+                    <p className="section--title">
+                        Hello, I'm Naman Chaturvedi
                     </p>
+
+                    <h1 className="hero--section--title">
+
+                        <span className="hero--section-title--color">
+
+                            Full Stack
+
+                        </span>
+
+                        <br />
+
+                        Developer
+
+                    </h1>
+
+                    <p className="hero--section-description">
+
+                        I am a Full Stack Developer and AWS Certified Solutions Architect focused on building scalable, high-performance systems. I thrive in problem-solving environments where strong engineering and architectural thinking matter. I am committed to delivering dependable applications while continuously advancing my cloud expertise.
+
+                    </p>
+
                 </div>
 
-                {/* Buttons Container with Inline Style */}
-                <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
-                    <button 
-                        className="btn btn-primary" 
-                        onClick={() => window.open("https://github.com/NamanChaturvedii/Resume/blob/main/Naman%20Chaturvedi%20Resume%20VIT.pdf")}
+
+                {/* BUTTONS */}
+
+                <div className="hero--buttons">
+
+                    <button
+
+                        className="btn hero-primary-btn"
+
+                        onClick={() =>
+                            window.open(
+                                "https://github.com/NamanChaturvedii/Resume/blob/main/Naman%20Chaturvedi%20Resume%20VIT.pdf"
+                            )
+                        }
+
                     >
                         Get Resume
-                    </button>  
-                    <button 
-                        className="btn btn-primary" 
-                        onClick={() => window.open("https://drive.google.com/drive/folders/1kKFffp0NkT-I_vj_CcRonz1XpWDp6gLT?usp=sharing")}
+
+                    </button>
+
+
+                    <button
+
+                        className="btn hero-secondary-btn"
+
+                        onClick={() =>
+                            window.open(
+                                "https://drive.google.com/drive/folders/1kKFffp0NkT-I_vj_CcRonz1XpWDp6gLT?usp=sharing"
+                            )
+                        }
+
                     >
+
                         Get Certificates
-                    </button>  
+
+                    </button>
+
                 </div>
+
             </div>
-            <div className="hero--section--img ">
-                <img src="./img/orname1.JPG" alt="Hero Section" />
+
+
+            {/* IMAGE SAME */}
+
+            <div className="hero--section--img">
+
+                <img src="./img/orname1.JPG" alt="Hero" />
+
             </div>
+
         </section>
+
     );
+
 }

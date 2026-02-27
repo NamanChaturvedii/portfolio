@@ -7,14 +7,24 @@ export default function MyPortfolio() {
     return (
         <section className="portfolio--section" id="MyPortfolio">
             <div className="portfolio--container-box">
-                <div className="portfolio--container">
-                    <p className="section--title">Recent Projects</p>
-                    <p className="skills--section--heading">My Portfolio</p>
-                    <p className="section--title">(Projects with star in github.)</p>
-                </div>
+                <div className="portfolio-header">
+
+<p className="portfolio-subtitle">
+Recent Projects
+</p>
+
+<h2 className="portfolio-main-title">
+My Portfolio
+</h2>
+
+<p className="portfolio-smallline">
+(Projects with star in github.)
+</p>
+
+</div>
                 <div>
                     <button className="btn btn-github" onClick={()=> {
-                        window.open("https://github.com/NamanChaturvedii")
+                        window.open("https://github.com/NamanChaturvedii?tab=repositories")
                     }}>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -36,13 +46,14 @@ export default function MyPortfolio() {
             </div>
             <div className="skills--section--container">
                 {data?.portfolio?.map((item, index) => (
-                    <div key={index} className="skills--section--title">
+                    <div key={index} className="portfolio--section--card">
                         <div className="portfolio--section--img">
                             <img src={item.src} alt="Placeholder" />
                         </div>
                         <div className="portfolio--section--card--content">
                             <div>
                                 <h3 className="portfolio--section--title">{item.title}</h3>
+                                <br/>
                                 <p className="text-md">{item.description}</p>
                             </div>
                             <p onClick={()=>window.open(item.link2)} className="text-sm portfolio--link">

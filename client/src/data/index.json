@@ -3,134 +3,116 @@
         {
             "id": "1",
             "src": "./img/product-chain-1.png",
-            "title": "Front-End",
-            "description": "I have learned about front-end technologies like HTML, CSS, JavaScript, React, Redux, and many more. I have also worked on many projects using these technologies."
+            "title": "Full Stack Development",
+            "description": "Java • Spring Boot • Node.js • React.js • React Native • Expo • REST APIs • Authentication Systems • Responsive UI Development"
         },
         {
             "id": "2",
             "src": "./img/tag-1.png",
-            "title": "Back-End",
-            "description": "I have learned about back-end technologies like Node.js, Express.js, MongoDB, and many more. I have also worked on many projects using these technologies."
+            "title": "Cloud & DevOps",
+            "description": "AWS Services • Docker • Containerization • Production Deployment • Cloudflare Tunnel • GitHub Version Control"
         },
         {
             "id": "3",
             "src": "./img/feather-pen-2.png",
-            "title": "UI & UX Design",
-            "description": "I have learned about UI & UX design. I have also worked on many projects using Figma, and many more.About this feild i can design the website and the app.This feild is mind blowing."
+            "title": "Automation & Integration",
+            "description": "N8N Workflow Automation • API Integrations • Webhooks • Event-driven Systems • Background Job Processing"
         },
         {
             "id": "4",
             "src": "./img/feather-pen-1.png",
-            "title": "Aws Technicals",
-            "description": "I have learned about AWS technicals like AWS Amplify, AWS S3, AWS Lambda, and many more. I have also worked on many projects."
+            "title": "Databases & Backend Infrastructure",
+            "description": "PostgreSQL • MySQL • MongoDB • Prisma ORM • Neon Serverless DB • Inngest • Arcjet"
         },
         {
             "id": "5",
             "src": "./img/tag-1.png",
-            "title": "Python",
-            "description": "I have learned about Python.I Know the basics of python and can work on the task is given."
+            "title": "Data & Analytics",
+            "description": "Python • Pandas • ETL Concepts • Data Transformation • Power BI • Tableau"
         },
         {
             "id": "6",
-            "src": "./img/tag-1.png",
-            "title": "Java/Cpp",
-            "description": "I have learned Java and cpp at a intermidate level and i can work on the task is given."
+            "src": "./img/feather-pen-1.png",
+            "title": "Programming Languages",
+            "description": "Java • Python • JavaScript • C++"
         },
         {
             "id": "7",
-            "src": "./img/feather-pen-1.png",
-            "title": "Database",
-            "description": "I have worked on Mongo Db and SQL and i can work on the database management system."
+            "src": "./img/tag-1.png",
+            "title": "Artificial Intelligence",
+            "description": "Natural Language Processing (NLP) Basics • Text Filtering • AI Support Systems • Intelligent Automation"
         },
         {
             "id": "8",
             "src": "./img/product-chain-1.png",
-            "title": "Power BI",
-            "description": "I can work on power Bi of managing the data and providing a report to the client."
+            "title": "Software Engineering Practices",
+            "description": "System Architecture • Scalable Design • Debugging • Performance Optimization • Production-ready Code"
         }
     ],
     "portfolio": [
         {
-            "id": "1",
-            "src": "./img/placeholder-image.png",
-            "title": "Restaurant Menu App ",
-            "description": "This is made on react js and this contains the menu of the restaurant and the user can see the item and the price of the item.This is a simple app.For beginners.",
-            "link": "View Site",
-            "link2": "https://mayuri-opal.vercel.app/"
+            "id": "6",
+            "src": "./img/autoops.png",
+            "title": "AutoOPS",
+            "description": "Role-based workflow governance platform built using React Native, Spring Boot, PostgreSQL, and n8n automation. Enables secure workflow creation, execution, and monitoring using JWT authentication and Docker Compose deployment.",
+            "link": "View code (Frontend available in github profile)",
+            "link2": "https://github.com/NamanChaturvedii/autoops-backend"
+        },
+        {
+            "id": "7",
+            "src": "./img/nlp.png",
+            "title": "Customer NLP Ticketing System",
+            "description": "Rule-based NLP ticketing system with a guided chatbot that collects user issues, detects urgency, and routes tickets to the appropriate admin automatically. Built using React Native, Spring Boot, PostgreSQL, and n8n automation with secure JWT authentication and Docker Compose deployment.",
+            "link": "View code (Frontend available in github profile)",
+            "link2": "https://github.com/NamanChaturvedii/Nlp-costumer-ticket-"
+        },
+        {
+            "id": "8",
+            "src": "./img/infra.png",
+            "title": "Infralens",
+            "description": "Data monitoring system analyzing COVID vaccination impact by comparing deaths before and after vaccination using automated workflows. If death margins exceed defined thresholds, n8n triggers high-risk email alerts with insights visualized in Tableau dashboards.",
+            "link": "View code",
+            "link2": "https://github.com/NamanChaturvedii/Infralens-python"
+        },
+        {
+            "id": "3",
+            "src": "./img/wealth1.png",
+            "title": "Wealth Management",
+            "description": "A Next.js-based wealth management platform that allows users to manage accounts, set budgets, and track expenses efficiently. It features AI-powered receipt scanning for automatic transaction entry, interactive dashboards with expense insights, and uses Arcjet and Inngest to send monthly reports and budget alert emails when spending approaches limits.",
+            "link": "View site",
+            "link2": "https://wealth-manager-pi.vercel.app/"
         },
         {
             "id": "2",
-            "src": "./img/placeholder-image-1.png",
+            "src": "./img/waste.png",
             "title": "Waste Management System",
-            "description": "A typescript project using AI. User can upload the image of the waste and the Ai will verify it about the waste and the user can make points.",
+            "description": "A TypeScript-based application that allows users to upload images of waste for AI-based verification. After verification, users receive points based on the identified waste.",
             "link": "View code",
             "link2": "https://github.com/NamanChaturvedii/managewaste"
         },
         {
-            "id": "3",
-            "src": "./img/placeholder-image-2.png",
-            "title": "Finance App",
-            "description": "This app has the database defined in the internal storage..With use of mordern techinques the user can get the next year predications too.This contains all the expenses of the user.",
-            "link": "View code",
-            "link2": "https://github.com/NamanChaturvedii/finanaceapp"
+            "id": "1",
+            "src": "./img/mayuri.png",
+            "title": "Restaurant Menu App ",
+            "description": "A React.js-based web application that displays a restaurant menu with predefined items and pricing added manually. Developed as a beginner project to demonstrate basic component structure and user interface design.",
+            "link": "View site",
+            "link2": "https://mayuri-opal.vercel.app/"
         },
         {
-            "id": "3",
-            "src": "./img/placeholder-image.png",
+            "id": "4",
+            "src": "./img/wedd.png",
             "title": "Wedding Itenary App",
-            "description": "This app has the database defined in the internal storage..With use of mordern techinques the user can get the next year predications too.This contains all the expenses of the user.",
+            "description": "A React.js-based front-end website that displays wedding events, locations, and a digital e-card. It also presents the details of the bride and groom in a simple and organized layout.",
             "link": "View site",
             "link2": "https://wedding-dun-sigma.vercel.app/"
         },
         {
-            "id": "3",
-            "src": "./img/placeholder-image-1.png",
-            "title": "E-commerce App",
-            "description": "This app has the database defined in the internal storage..With use of mordern techinques the user can get the next year predications too.This contains all the expenses of the user.",
-            "link": "View code",
-            "link2": "https://github.com/NamanChaturvedii/Website"
-        },
-        {
-            "id": "3",
-            "src": "./img/placeholder-image-2.png",
+            "id": "5",
+            "src": "./img/port.png",
             "title": "Portfolio App",
-            "description": "This app has the database defined in the internal storage..With use of mordern techinques the user can get the next year predications too.This contains all the expenses of the user.",
+            "description": "A React.js-based personal portfolio website showcasing projects, technical skills, GitHub profile, and contact details. Designed with a clean and simple interface to present portfolio information effectively.",
             "link": "View site",
             "link2": "https://portfolio-namanchaturvediis-projects.vercel.app/"
-        }
-    ],
-    "testimonial": [
-        {
-            "id": "1",
-            "count": "5",
-            "src": "./img/avatar-image.png",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
-            "author_name": "Dianne Russel",
-            "author_designation": "Starbucks"
-        },
-        {
-            "id": "2",
-            "count": "5",
-            "src": "./img/avatar-image-1.png",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
-            "author_name": "Kristin Watson",
-            "author_designation": "Louis Vuitton"
-        },
-        {
-            "id": "3",
-            "count": "5",
-            "src": "./img/avatar-image-2.png",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
-            "author_name": "Kathryn Murphy",
-            "author_designation": "McDonald's"
-        },
-        {
-            "id": "4",
-            "count": "5",
-            "src": "./img/avatar-image.png",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
-            "author_name": "Dianne Russel",
-            "author_designation": "Starbucks"
         }
     ]
 }

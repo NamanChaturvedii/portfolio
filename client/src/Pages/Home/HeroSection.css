@@ -1,0 +1,188 @@
+/* Fix Navbar overlap */
+
+.hero--section {
+
+    margin-top: 100px;
+
+    padding-bottom: 90px !important;
+
+}
+
+
+/* Title gradient */
+
+.hero--section-title--color {
+
+    background: linear-gradient(
+        90deg,
+        #6366f1,
+        #8b5cf6
+    );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+/* Premium paragraph */
+
+.hero--section-description {
+
+    max-width: 560px;
+
+    font-size: 20px;
+
+    line-height: 1.8;
+
+    color: #4b5563;
+
+    margin-top: 20px;
+
+    position: relative;
+
+    padding-left: 18px;
+
+    animation: fadeUp 0.9s ease forwards;
+
+    opacity: 0;
+
+}
+
+
+/* Accent line */
+
+.hero--section-description::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 8px;
+
+    height: 85%;
+
+    width: 4px;
+
+    background: linear-gradient(
+        to bottom,
+        #6366f1,
+        #8b5cf6
+    );
+
+    border-radius: 4px;
+
+}
+
+
+/* Buttons */
+
+.hero--buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 30px;
+
+}
+
+
+/* Primary Button */
+
+.hero-primary-btn {
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #6366f1,
+        #8b5cf6
+    );
+
+    color: white;
+
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+
+    box-shadow:
+        0 10px 20px rgba(
+            99,
+            102,
+            241,
+            0.3
+        );
+
+}
+
+
+.hero-primary-btn:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 30px rgba(
+            99,
+            102,
+            241,
+            0.45
+        );
+
+}
+
+
+/* Secondary Button */
+
+.hero-secondary-btn {
+
+    border-radius: 10px;
+
+    border: 2px solid #6366f1;
+
+    background: transparent;
+
+    color: #6366f1;
+
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.hero-secondary-btn:hover {
+
+    background: #6366f1;
+
+    color: white;
+
+    transform: translateY(-4px);
+
+}
+
+
+/* Fade animation */
+
+@keyframes fadeUp {
+
+    from {
+
+        transform: translateY(20px);
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        transform: translateY(0);
+
+        opacity: 1;
+
+    }
+
+}
