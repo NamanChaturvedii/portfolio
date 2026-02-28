@@ -47,7 +47,7 @@ export default function HeroSection() {
 
                         onClick={() =>
                             window.open(
-                                "https://github.com/NamanChaturvedii/Resume/blob/main/Naman%20Chaturvedi%20Resume%20VIT.pdf"
+                                "https://drive.google.com/file/d/1jBxjs8mIBx58V7E8sbHC5RGOZMLuUNI3/view?usp=sharing"
                             )
                         }
 
