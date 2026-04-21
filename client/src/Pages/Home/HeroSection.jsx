@@ -30,7 +30,7 @@ export default function HeroSection() {
 
                     <p className="hero--section-description">
 
-                        I am a Full Stack Developer and AWS Certified Solutions Architect focused on building scalable, high-performance systems. I thrive in problem-solving environments where strong engineering and architectural thinking matter. I am committed to delivering dependable applications while continuously advancing my cloud expertise.
+                        I am a Full Stack Developer specializing in the MERN stack, Next.js, and modern React ecosystems, with additional experience in Java and Spring Boot backend development. AWS Certified Solutions Architect — Associate with hands-on experience shipping production web applications end-to-end and self-managing their deployment on Linux VPS infrastructure. I care about clean architecture, reliable systems, and building things that actually reach real users.
 
                     </p>
 
@@ -47,7 +47,7 @@ export default function HeroSection() {
 
                         onClick={() =>
                             window.open(
-                                "https://drive.google.com/file/d/1jBxjs8mIBx58V7E8sbHC5RGOZMLuUNI3/view?usp=sharing"
+                                "https://drive.google.com/file/d/1LhQ7DY5ECu1GF2Bh0Pe7QhqTiZ6Wi18p/view?usp=sharing"
                             )
                         }
 

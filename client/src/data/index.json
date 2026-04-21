@@ -3,116 +3,116 @@
         {
             "id": "1",
             "src": "./img/product-chain-1.png",
-            "title": "Full Stack Development",
-            "description": "Java • Spring Boot • Node.js • React.js • React Native • Expo • REST APIs • Authentication Systems • Responsive UI Development"
+            "title": "Frontend Development",
+            "description": "React.js • Next.js • Vite • React Native • TypeScript • Tailwind CSS • React Router • Recharts • Responsive UI Development"
         },
         {
             "id": "2",
-            "src": "./img/tag-1.png",
-            "title": "Cloud & DevOps",
-            "description": "AWS Services • Docker • Containerization • Production Deployment • Cloudflare Tunnel • GitHub Version Control"
+            "src": "./img/product-chain-1.png",
+            "title": "Backend Development",
+            "description": "Node.js • Express.js • Java • Spring Boot • REST APIs • JWT Authentication • RBAC • Socket.io • WebSockets"
         },
         {
             "id": "3",
-            "src": "./img/feather-pen-2.png",
-            "title": "Automation & Integration",
-            "description": "N8N Workflow Automation • API Integrations • Webhooks • Event-driven Systems • Background Job Processing"
+            "src": "./img/feather-pen-1.png",
+            "title": "Databases & ORM",
+            "description": "MongoDB (Mongoose, Atlas) • PostgreSQL • MySQL • Prisma ORM • Supabase • Neon Serverless DB"
         },
         {
             "id": "4",
-            "src": "./img/feather-pen-1.png",
-            "title": "Databases & Backend Infrastructure",
-            "description": "PostgreSQL • MySQL • MongoDB • Prisma ORM • Neon Serverless DB • Inngest • Arcjet"
+            "src": "./img/tag-1.png",
+            "title": "Cloud & DevOps",
+            "description": "AWS (EC2, S3, IAM, VPC) • Ubuntu VPS • SSH • Nginx (Reverse Proxy, SSL) • PM2 • Certbot • Docker • Cloudflare Tunnel"
         },
         {
             "id": "5",
             "src": "./img/tag-1.png",
-            "title": "Data & Analytics",
-            "description": "Python • Pandas • ETL Concepts • Data Transformation • Power BI • Tableau"
+            "title": "API Integrations",
+            "description": "Razorpay Payments • Google OAuth • Anthropic Claude API • Nodemailer (Gmail SMTP) • Jitsi Meet • Leaflet / OpenStreetMap"
         },
         {
             "id": "6",
-            "src": "./img/feather-pen-1.png",
-            "title": "Programming Languages",
-            "description": "Java • Python • JavaScript • C++"
+            "src": "./img/feather-pen-2.png",
+            "title": "Automation & Workflows",
+            "description": "n8n Workflow Automation • Inngest Cron Jobs • Arcjet Rate-Limiting • Webhooks • Event-Driven Architecture"
         },
         {
             "id": "7",
-            "src": "./img/tag-1.png",
-            "title": "Artificial Intelligence",
-            "description": "Natural Language Processing (NLP) Basics • Text Filtering • AI Support Systems • Intelligent Automation"
+            "src": "./img/feather-pen-1.png",
+            "title": "Programming Languages",
+            "description": "JavaScript • TypeScript • Java • Python • C++ • SQL • HTML5 • CSS3"
         },
         {
             "id": "8",
             "src": "./img/product-chain-1.png",
             "title": "Software Engineering Practices",
-            "description": "System Architecture • Scalable Design • Debugging • Performance Optimization • Production-ready Code"
+            "description": "System Architecture • Scalable Design • Clean Code • Debugging • Performance Optimization • Production-Ready Deployment"
         }
     ],
     "portfolio": [
         {
-            "id": "6",
+            "id": "1",
+            "src": "./img/kundaligyan.png",
+            "title": "KundaliGyan",
+            "description": "An AI-powered Vedic astrology chat platform with pay-per-minute live sessions. Built using React, Node.js, MongoDB, and Socket.io with a real-time session timer that debits the user's wallet every second. Integrates Razorpay for wallet top-ups with HMAC-SHA256 signature verification and the Anthropic Claude API for the astrologer chat. Self-deployed on a private Ubuntu VPS with Nginx, PM2, and SSL.",
+            "link": "View site",
+            "link2": "https://kundaligyan.com"
+        },
+        {
+            "id": "2",
+            "src": "./img/mentorone.png",
+            "title": "MentorOne",
+            "description": "A three-role mentor booking marketplace (Student, Mentor, Admin) with slot booking, real-time Socket.io chat rooms, embedded Jitsi video sessions, server-scheduled auto-end timers, and a 4-day mentor payout cycle. Built with React, Node.js, PostgreSQL, and Prisma. Razorpay integration with a 90/10 split, HMAC verification, and a recovery endpoint for stale payments. Self-deployed on Ubuntu VPS.",
+            "link": "View site",
+            "link2": "https://mentorone.fun"
+        },
+        {
+            "id": "3",
+            "src": "./img/bloodbridge.png",
+            "title": "BloodBridge",
+            "description": "A four-role MERN platform (Donor, Patient, Organizer, Admin) that matches blood donors by group and geographic proximity using the Haversine formula in JavaScript — no paid maps API required. Features Leaflet maps with OpenStreetMap tiles, asynchronous Nodemailer alerts, two-layer RBAC, Google OAuth, and an admin-approved camps workflow. Self-deployed on Ubuntu VPS.",
+            "link": "View site",
+            "link2": "https://bloodbridge.online"
+        },
+        {
+            "id": "4",
+            "src": "./img/wealthin.png",
+            "title": "WealthIn",
+            "description": "A full-stack AI-powered personal finance platform built with Next.js, TypeScript, Prisma, and Supabase PostgreSQL. Users manage accounts, set budgets, and track expenses through interactive Recharts dashboards. Uses the Anthropic Claude API for AI receipt scanning, Inngest for cron-driven recurring transactions and monthly reports, Arcjet for rate-limiting, and Clerk for authentication.",
+            "link": "View site",
+            "link2": "https://wealthin.fun"
+        },
+        {
+            "id": "5",
             "src": "./img/autoops.png",
             "title": "AutoOPS",
             "description": "Role-based workflow governance platform built using React Native, Spring Boot, PostgreSQL, and n8n automation. Enables secure workflow creation, execution, and monitoring using JWT authentication and Docker Compose deployment.",
-            "link": "View code (Frontend available in github profile)",
+            "link": "View code",
             "link2": "https://github.com/NamanChaturvedii/autoops-backend"
         },
         {
-            "id": "7",
+            "id": "6",
             "src": "./img/nlp.png",
             "title": "Customer NLP Ticketing System",
             "description": "Rule-based NLP ticketing system with a guided chatbot that collects user issues, detects urgency, and routes tickets to the appropriate admin automatically. Built using React Native, Spring Boot, PostgreSQL, and n8n automation with secure JWT authentication and Docker Compose deployment.",
-            "link": "View code (Frontend available in github profile)",
+            "link": "View code",
             "link2": "https://github.com/NamanChaturvedii/Nlp-costumer-ticket-"
         },
         {
-            "id": "8",
+            "id": "7",
             "src": "./img/infra.png",
             "title": "Infralens",
             "description": "Data monitoring system analyzing COVID vaccination impact by comparing deaths before and after vaccination using automated workflows. If death margins exceed defined thresholds, n8n triggers high-risk email alerts with insights visualized in Tableau dashboards.",
             "link": "View code",
             "link2": "https://github.com/NamanChaturvedii/Infralens-python"
         },
-        {
-            "id": "3",
-            "src": "./img/wealth1.png",
-            "title": "Wealth Management",
-            "description": "A Next.js-based wealth management platform that allows users to manage accounts, set budgets, and track expenses efficiently. It features AI-powered receipt scanning for automatic transaction entry, interactive dashboards with expense insights, and uses Arcjet and Inngest to send monthly reports and budget alert emails when spending approaches limits.",
-            "link": "View site",
-            "link2": "https://wealth-manager-pi.vercel.app/"
-        },
-        {
-            "id": "2",
-            "src": "./img/waste.png",
-            "title": "Waste Management System",
-            "description": "A TypeScript-based application that allows users to upload images of waste for AI-based verification. After verification, users receive points based on the identified waste.",
-            "link": "View code",
-            "link2": "https://github.com/NamanChaturvedii/managewaste"
-        },
-        {
-            "id": "1",
-            "src": "./img/mayuri.png",
-            "title": "Restaurant Menu App ",
-            "description": "A React.js-based web application that displays a restaurant menu with predefined items and pricing added manually. Developed as a beginner project to demonstrate basic component structure and user interface design.",
-            "link": "View site",
-            "link2": "https://mayuri-opal.vercel.app/"
-        },
-        {
-            "id": "4",
-            "src": "./img/wedd.png",
-            "title": "Wedding Itenary App",
-            "description": "A React.js-based front-end website that displays wedding events, locations, and a digital e-card. It also presents the details of the bride and groom in a simple and organized layout.",
-            "link": "View site",
-            "link2": "https://wedding-dun-sigma.vercel.app/"
-        },
-        {
+ {
             "id": "5",
             "src": "./img/port.png",
             "title": "Portfolio App",
             "description": "A React.js-based personal portfolio website showcasing projects, technical skills, GitHub profile, and contact details. Designed with a clean and simple interface to present portfolio information effectively.",
             "link": "View site",
-            "link2": "https://portfolio-namanchaturvediis-projects.vercel.app/"
+            "link2": "https://namanchat.online/"
         }
     ]
 }
