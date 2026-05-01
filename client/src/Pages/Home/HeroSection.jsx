@@ -47,7 +47,7 @@ export default function HeroSection() {
 
                         onClick={() =>
                             window.open(
-                                "https://drive.google.com/file/d/1LhQ7DY5ECu1GF2Bh0Pe7QhqTiZ6Wi18p/view?usp=sharing"
+                                "https://drive.google.com/file/d/1C3HtJm1ADGM6NQnsv61kkzj2RHga_oCh/view?usp=sharing"
                             )
                         }
 
