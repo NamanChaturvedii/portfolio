@@ -30,7 +30,7 @@ export default function HeroSection() {
 
                     <p className="hero--section-description">
 
-                        I am a Full Stack Developer specializing in the MERN stack, Next.js, and modern React ecosystems, with additional experience in Java and Spring Boot backend development. AWS Certified Solutions Architect — Associate with hands-on experience shipping production web applications end-to-end and self-managing their deployment on Linux VPS infrastructure. I care about clean architecture, reliable systems, and building things that actually reach real users.
+                        I am a Full Stack Developer and AI/ML Engineer who enjoys building and shipping real-world products from idea to production. I work across modern web technologies, backend development, AI-powered applications, and cloud infrastructure, with hands-on experience building production web applications end-to-end and deploying the applications on Linux VPS and AWS. I care about clean architecture, reliable systems, and building things that actually reach real users.
 
                     </p>
 
@@ -47,7 +47,7 @@ export default function HeroSection() {
 
                         onClick={() =>
                             window.open(
-                                "https://drive.google.com/file/d/1C3HtJm1ADGM6NQnsv61kkzj2RHga_oCh/view?usp=sharing"
+                                "https://drive.google.com/file/d/1ys4fJ83C3CC4ME8xQS7NWGuDaspoiJnn/view?usp=sharing"
                             )
                         }
 

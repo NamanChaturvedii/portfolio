@@ -5,6 +5,7 @@ import MyPortfolio from "../MyPortfolio";
 import Testimonial from "../Testimonials";
 import ContactMe from "../ContactMe";
 import Footer from "../Footer";
+import Experience from "../Experience";
 
 export default function Homescreen() {
     return (
@@ -12,6 +13,7 @@ export default function Homescreen() {
             <HeroSection />
             <MySkills/>
             <MyPortfolio/>
+            <Experience/>
             <AboutMe/>
             {/* <Testimonial/> */}
             <ContactMe/>

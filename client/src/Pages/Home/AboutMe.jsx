@@ -9,19 +9,25 @@ export default function AboutMe() {
                     <h1 className="skills-main-title">About Me</h1>
                     <p className="about-description">
 
-                        I am a Computer Science and Engineering student at VIT Bhopal University and a Full Stack Web Developer who enjoys building things that actually reach real users. My core stack is the MERN stack and Next.js, and I also work comfortably with Java and Spring Boot on the backend when the project calls for it. I care most about clean architecture, reliable systems, and writing code that is production-ready rather than just demo-ready.
+                        I am a Computer Science and Engineering graduate from VIT Bhopal University and a Full Stack Developer and AI/ML Engineer who enjoys building things that actually reach real users. I work across modern web technologies, backend development, AI-powered applications, and cloud infrastructure, with a focus on clean architecture and reliable, production-ready systems.
 
                     </p>
 
                     <p className="about-description">
 
-                        I have shipped four production web applications end-to-end — KundaliGyan, MentorOne, BloodBridge, and WealthIn — each with live domains, real payment integrations, real-time Socket.io features, and authentication flows. Beyond writing the code, I self-host most of these projects on my own Ubuntu VPS using Nginx as a reverse proxy, PM2 for process management, and Let's Encrypt SSL — so I own the entire pipeline from first commit to live HTTPS URL. I am also an AWS Certified Solutions Architect — Associate and an AWS Certified Cloud Practitioner.
+                        I have built and shipped four production web applications — KundaliGyan, MentorOne, BloodBridge, and WealthIn — with real payment integrations, authentication, and real-time features. I also have hands-on experience deploying my own applications on Ubuntu VPS and AWS, taking projects from development to a live product.
 
                     </p>
 
                     <p className="about-description">
 
-                        I am always learning, comfortable picking up new tools quickly, and looking for engineering teams where I can contribute meaningfully and grow as a developer. Feel free to connect with me through the contact section below.
+                        Currently, I work as an AI/ML Engineer Trainee at Coherent Market Insights, where I build and run AI-powered research pipelines and work on automated validation and production reliability. I am also an AWS Certified Solutions Architect — Associate and AWS Certified Cloud Practitioner.
+
+                    </p>
+
+                    <p className="about-description">
+
+                        I am always learning, comfortable picking up new tools quickly, and enjoy building practical solutions that solve real problems.
 
                     </p>
 
