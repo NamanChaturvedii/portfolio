@@ -1,3 +1,77 @@
+/* Resume Dropdown */
+
+.resume--dropdown--wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.resume--dropdown--btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.resume--arrow {
+    display: inline-block;
+    transition: transform 0.25s ease;
+    font-size: 14px;
+}
+
+.resume--arrow.open {
+    transform: rotate(180deg);
+}
+
+.resume--dropdown--menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 16px 40px rgba(94, 59, 238, 0.18);
+    padding: 8px;
+    z-index: 999;
+    min-width: 220px;
+    animation: dropdownFadeIn 0.2s ease;
+}
+
+@keyframes dropdownFadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.resume--dropdown--item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--darkblue, #1c1e53);
+    transition: background 0.2s ease;
+    cursor: pointer;
+}
+
+.resume--dropdown--item:hover {
+    background: linear-gradient(135deg, rgba(94,59,238,0.07), rgba(139,92,246,0.1));
+}
+
+.resume--dropdown--icon {
+    font-size: 22px;
+    line-height: 1;
+}
+
+.resume--dropdown--label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--heading-color, #282938);
+}
+
+.resume--dropdown--sub {
+    font-size: 11px;
+    color: #888;
+    margin-top: 2px;
+}
+
 /* Fix Navbar overlap */
 
 .hero--section {
@@ -88,6 +162,8 @@
 
     margin-top: 30px;
 
+    align-items: flex-start;
+
 }
 
 
@@ -150,6 +226,10 @@
     font-weight: 600;
 
     transition: all 0.3s ease;
+
+    height: fit-content;
+
+    align-self: flex-start;
 
 }
 
