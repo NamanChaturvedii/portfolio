@@ -21,8 +21,26 @@
         {
             "id": "4",
             "src": "./img/tag-1.png",
-            "title": "Cloud & DevOps",
-            "description": "AWS (EC2, S3, IAM, VPC) • Ubuntu VPS • SSH • Nginx (Reverse Proxy, SSL) • PM2 • Certbot • Docker • Cloudflare Tunnel"
+            "title": "Cloud & Infrastructure",
+            "description": "AWS (EC2, S3, IAM, VPC, RDS, ALB, EKS, ECR) • Ubuntu VPS • SSH • Nginx • PM2 • Certbot • Cloudflare Tunnel • Multi-tier AWS Architecture"
+        },
+        {
+            "id": "4a",
+            "src": "./img/tag-1.png",
+            "title": "Infrastructure as Code",
+            "description": "Terraform • Ansible • S3 Remote State • DynamoDB Locking • Dynamic Inventory • Reusable Modules • No more clicking through the AWS console"
+        },
+        {
+            "id": "4b",
+            "src": "./img/product-chain-1.png",
+            "title": "CI/CD Pipelines",
+            "description": "GitHub Actions • Multi-stage Docker Builds • Trivy Security Scanning • Amazon ECR • Auto Deploy & Rollback • Health Checks • If it's not automated, it's a manual mistake waiting to happen"
+        },
+        {
+            "id": "4c",
+            "src": "./img/feather-pen-2.png",
+            "title": "Containers & Observability",
+            "description": "Docker • Kubernetes (EKS, Kind) • Helm • Pods • Services • Ingress • Prometheus • Grafana • kube-prometheus-stack • Know when things break before users do"
         },
         {
             "id": "5",
