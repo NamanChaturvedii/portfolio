@@ -1274,12 +1274,6 @@ input[type="checkbox"] {
     box-sizing: border-box;
 }
 
-.hero--section {
-    overflow-x: hidden; /* Prevents side scroll */
-}
-
-
-
 
 
     .hero--section {
