@@ -626,24 +626,13 @@ function BlockPortrait({ src }) {
         const wrap = wrapRef.current;
         const canvas = canvasRef.current;
         const ctx = canvas.getContext("2d");
-        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         const img = new Image();
         img.src = src;
 
-        const R = 80;
-        const mouse = { x: -9999, y: -9999 };
-        let buckets = [];
-        let w = 0;
-        let h = 0;
-        let raf = 0;
-        let started = 0;
-        let visible = false;
-        let built = false;
-
-        const build = (scatter) => {
-            w = wrap.clientWidth;
-            h = wrap.clientHeight;
-            if (!w || !h || !img.naturalWidth) return false;
+        const render = () => {
+            const w = wrap.clientWidth;
+            const h = wrap.clientHeight;
+            if (!w || !h || !img.naturalWidth) return;
             const dpr = Math.min(window.devicePixelRatio || 1, 2);
             canvas.width = w * dpr;
             canvas.height = h * dpr;
@@ -662,7 +651,7 @@ function BlockPortrait({ src }) {
             octx.drawImage(img, (cols - dw) / 2, (rows - dh) * 0.3, dw, dh);
             const px = octx.getImageData(0, 0, cols, rows).data;
 
-            buckets = Array.from({ length: 16 }, () => []);
+            const buckets = Array.from({ length: 16 }, () => []);
             for (let y = 0; y < rows; y++) {
                 for (let x = 0; x < cols; x++) {
                     const i = (y * cols + x) * 4;
@@ -673,104 +662,28 @@ function BlockPortrait({ src }) {
                     const vig = Math.min(1, Math.max(0, 1.35 - Math.sqrt(nx * nx * 1.8 + ny * ny) * 1.6));
                     const l = Math.min(1, Math.max(0, (lum - 0.5) * 1.45 + 0.52)) * vig;
                     if (l < 0.1) continue;
-                    const hx = x * gap + gap / 2;
-                    const hy = y * gap + gap / 2;
-                    buckets[Math.round(l * 15)].push({
-                        hx,
-                        hy,
-                        x: scatter ? hx + (Math.random() - 0.5) * w * 1.6 : hx,
-                        y: scatter ? hy + (Math.random() - 0.5) * h * 1.6 : hy,
-                        vx: 0,
-                        vy: 0,
-                        s: gap * (0.18 + 0.82 * l),
-                        wake: scatter ? Math.random() * 600 + (y / rows) * 450 : 0,
-                    });
+                    const s = gap * (0.18 + 0.82 * l);
+                    buckets[Math.round(l * 15)].push(x * gap + gap / 2 - s / 2, y * gap + gap / 2 - s / 2, s);
                 }
             }
-            built = true;
-            return true;
-        };
 
-        const draw = (t, simulate) => {
             ctx.clearRect(0, 0, w, h);
-            const el = t - started;
             for (let l = 0; l < 16; l++) {
                 const v = Math.round(70 + (l / 15) * 185);
                 ctx.fillStyle = `rgb(${v},${v},${v})`;
                 const list = buckets[l];
-                for (let i = 0; i < list.length; i++) {
-                    const p = list[i];
-                    if (simulate && el >= p.wake) {
-                        const dx = p.x - mouse.x;
-                        const dy = p.y - mouse.y;
-                        const d2 = dx * dx + dy * dy;
-                        if (d2 < R * R) {
-                            const d = Math.sqrt(d2) || 1;
-                            const f = (1 - d / R) * 3.2;
-                            p.vx += (dx / d) * f;
-                            p.vy += (dy / d) * f;
-                        }
-                        p.vx = (p.vx + (p.hx - p.x) * 0.06) * 0.8;
-                        p.vy = (p.vy + (p.hy - p.y) * 0.06) * 0.8;
-                        p.x += p.vx;
-                        p.y += p.vy;
-                    }
-                    ctx.fillRect(p.x - p.s / 2, p.y - p.s / 2, p.s, p.s);
-                }
+                for (let i = 0; i < list.length; i += 3) ctx.fillRect(list[i], list[i + 1], list[i + 2], list[i + 2]);
             }
         };
 
-        const loop = (t) => {
-            draw(t, true);
-            if (visible) raf = requestAnimationFrame(loop);
-        };
-
-        const begin = () => {
-            if (!visible || !img.naturalWidth) return;
-            if (!built) {
-                if (!build(!reduce)) return;
-                started = performance.now();
-            }
-            cancelAnimationFrame(raf);
-            if (reduce) draw(performance.now(), false);
-            else raf = requestAnimationFrame(loop);
-        };
-
-        const io = new IntersectionObserver(([entry]) => {
-            visible = entry.isIntersecting;
-            if (visible) begin();
-            else cancelAnimationFrame(raf);
-        });
-        io.observe(wrap);
-
-        const ro = new ResizeObserver(() => {
-            if (!built) return;
-            build(false);
-            if (reduce) draw(performance.now(), false);
-        });
+        const ro = new ResizeObserver(render);
         ro.observe(wrap);
-
-        img.addEventListener("load", begin);
-
-        const move = (e) => {
-            const r = wrap.getBoundingClientRect();
-            mouse.x = e.clientX - r.left;
-            mouse.y = e.clientY - r.top;
-        };
-        const leave = () => {
-            mouse.x = -9999;
-            mouse.y = -9999;
-        };
-        wrap.addEventListener("mousemove", move);
-        wrap.addEventListener("mouseleave", leave);
+        img.addEventListener("load", render);
+        render();
 
         return () => {
-            cancelAnimationFrame(raf);
-            io.disconnect();
             ro.disconnect();
-            img.removeEventListener("load", begin);
-            wrap.removeEventListener("mousemove", move);
-            wrap.removeEventListener("mouseleave", leave);
+            img.removeEventListener("load", render);
         };
     }, [src]);
 
