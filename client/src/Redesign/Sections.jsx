@@ -618,78 +618,46 @@ export function Experience() {
     );
 }
 
-function BlockPortrait({ src }) {
-    const wrapRef = useRef(null);
-    const canvasRef = useRef(null);
+const PIPELINE = [
+    { title: <code>git push</code>, sub: "main → GitHub", tag: "Code" },
+    { title: "Build · Test · Scan", sub: "GitHub Actions + Trivy", tag: "CI" },
+    { title: "Docker image", sub: "multi-stage → Amazon ECR", tag: "Artifact" },
+    { title: <code>terraform apply</code>, sub: "VPC · ALB · EC2 · RDS", tag: "IaC" },
+    { title: "Deployed", sub: "Kubernetes · Nginx · Ansible", tag: "Run" },
+    { title: "Observed", sub: "Prometheus + Grafana", tag: "Monitor", spark: true },
+];
 
-    useEffect(() => {
-        const wrap = wrapRef.current;
-        const canvas = canvasRef.current;
-        const ctx = canvas.getContext("2d");
-        const img = new Image();
-        img.src = src;
-
-        const render = () => {
-            const w = wrap.clientWidth;
-            const h = wrap.clientHeight;
-            if (!w || !h || !img.naturalWidth) return;
-            const dpr = Math.min(window.devicePixelRatio || 1, 2);
-            canvas.width = w * dpr;
-            canvas.height = h * dpr;
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-            const gap = w < 380 ? 5 : 6;
-            const cols = Math.floor(w / gap);
-            const rows = Math.floor(h / gap);
-            const off = document.createElement("canvas");
-            off.width = cols;
-            off.height = rows;
-            const octx = off.getContext("2d", { willReadFrequently: true });
-            const scale = Math.max(cols / img.naturalWidth, rows / img.naturalHeight);
-            const dw = img.naturalWidth * scale;
-            const dh = img.naturalHeight * scale;
-            octx.drawImage(img, (cols - dw) / 2, (rows - dh) * 0.3, dw, dh);
-            const px = octx.getImageData(0, 0, cols, rows).data;
-
-            const buckets = Array.from({ length: 16 }, () => []);
-            for (let y = 0; y < rows; y++) {
-                for (let x = 0; x < cols; x++) {
-                    const i = (y * cols + x) * 4;
-                    const lum = (0.299 * px[i] + 0.587 * px[i + 1] + 0.114 * px[i + 2]) / 255;
-                    // Radial falloff around the subject so the busy background dissolves into black.
-                    const nx = x / cols - 0.5;
-                    const ny = y / rows - 0.34;
-                    const vig = Math.min(1, Math.max(0, 1.35 - Math.sqrt(nx * nx * 1.8 + ny * ny) * 1.6));
-                    const l = Math.min(1, Math.max(0, (lum - 0.5) * 1.45 + 0.52)) * vig;
-                    if (l < 0.1) continue;
-                    const s = gap * (0.18 + 0.82 * l);
-                    buckets[Math.round(l * 15)].push(x * gap + gap / 2 - s / 2, y * gap + gap / 2 - s / 2, s);
-                }
-            }
-
-            ctx.clearRect(0, 0, w, h);
-            for (let l = 0; l < 16; l++) {
-                const v = Math.round(70 + (l / 15) * 185);
-                ctx.fillStyle = `rgb(${v},${v},${v})`;
-                const list = buckets[l];
-                for (let i = 0; i < list.length; i += 3) ctx.fillRect(list[i], list[i + 1], list[i + 2], list[i + 2]);
-            }
-        };
-
-        const ro = new ResizeObserver(render);
-        ro.observe(wrap);
-        img.addEventListener("load", render);
-        render();
-
-        return () => {
-            ro.disconnect();
-            img.removeEventListener("load", render);
-        };
-    }, [src]);
-
+function PipelineCard() {
     return (
-        <div className="about__photo" ref={wrapRef} role="img" aria-label="Portrait of Naman Chaturvedi">
-            <canvas ref={canvasRef} />
+        <div className="pipe" role="img" aria-label="Deployment pipeline: git push, CI build and scan, Docker image, Terraform on AWS, Kubernetes deploy, Prometheus and Grafana monitoring">
+            <div className="pipe__head">
+                <span className="pipe__file">
+                    .github/workflows/<b>ship.yml</b>
+                </span>
+                <span className="pipe__status">
+                    <i />
+                    passing
+                </span>
+            </div>
+            <div className="pipe__list">
+                <span className="pipe__rail" />
+                {PIPELINE.map((s, i) => (
+                    <div key={s.tag} className="pipe__row">
+                        <span className="pipe__node">{String(i + 1).padStart(2, "0")}</span>
+                        <span className="pipe__body">
+                            <span className="pipe__title">{s.title}</span>
+                            <span className="pipe__sub">{s.sub}</span>
+                        </span>
+                        {s.spark ? (
+                            <svg className="pipe__spark" width="56" height="22" viewBox="0 0 56 22" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                <path d="M1 16l7-4 6 5 7-10 7 6 6-3 7 4 7-9 7 3" />
+                            </svg>
+                        ) : (
+                            <span className="pipe__tag">{s.tag}</span>
+                        )}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
@@ -719,7 +687,7 @@ export function About() {
 
             <div className="about__grid">
                 <div className="about__media" data-reveal>
-                    <BlockPortrait src="./img/main.jpg" />
+                    <PipelineCard />
                     <div ref={termRef} className={`terminal ${termIn ? "is-on" : ""}`}>
                         <div className="terminal__bar">
                             <i />
