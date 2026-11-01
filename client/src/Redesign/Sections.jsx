@@ -62,7 +62,8 @@ const SKILL_ICONS = {
 };
 
 const PLATFORM_IDS = new Set(["4", "4a", "4b", "4c"]);
-const SKILL_COLORS = ["#a78bfa", "#22d3ee", "#f472b6", "#fbbf24", "#4ade80", "#60a5fa", "#fb923c", "#f87171", "#2dd4bf", "#c084fc", "#a3e635"];
+const ACCENTS = ["#a78bfa", "#22d3ee", "#f472b6", "#fbbf24", "#4ade80", "#60a5fa", "#fb923c", "#f87171", "#2dd4bf", "#c084fc", "#a3e635"];
+const accent = (i) => ACCENTS[i % ACCENTS.length];
 const WIDE_CELLS = new Set([0, 4, 6, 9, 10]);
 
 const TIMELINE = [
@@ -468,7 +469,7 @@ export function Expertise() {
                     const chips = tagline ? parts.slice(0, -1) : parts;
                     const platform = PLATFORM_IDS.has(s.id);
                     return (
-                        <div key={s.id} className={`bento__cell ${WIDE_CELLS.has(i) ? "is-wide" : ""}`} data-reveal style={{ "--rd": `${(i % 4) * 80}ms`, "--c": SKILL_COLORS[i % SKILL_COLORS.length] }}>
+                        <div key={s.id} className={`bento__cell ${WIDE_CELLS.has(i) ? "is-wide" : ""}`} data-reveal style={{ "--rd": `${(i % 4) * 80}ms`, "--c": accent(i) }}>
                             <SpotCard className="skill">
                                 <div className="skill__top">
                                     <span className="skill__icon">{SKILL_ICONS[s.id]}</span>
@@ -510,7 +511,7 @@ export function Work() {
 
             <div className="work">
                 {data.portfolio.map((p, i) => (
-                    <div key={p.title} className="work__cell" data-reveal style={{ "--rd": `${(i % 2) * 110}ms` }}>
+                    <div key={p.title} className="work__cell" data-reveal style={{ "--rd": `${(i % 2) * 110}ms`, "--c": accent(i) }}>
                         <SpotCard
                             className="project"
                             role="link"
@@ -573,7 +574,7 @@ export function Experience() {
                 <div className="timeline__track">
                     <span className="timeline__fill" />
                 </div>
-                {TIMELINE.map((t) => (
+                {TIMELINE.map((t, i) => (
                     <article key={t.org} className="tl" data-reveal>
                         <div className="tl__meta">
                             <span className="tl__kind">{t.kind}</span>
@@ -582,7 +583,7 @@ export function Experience() {
                         </div>
                         <span className="tl__dot" />
                         <SpotCard className="tl__card" tilt={false}>
-                            <h3>{t.title}</h3>
+                            <h3 style={{ "--c": accent(i * 5) }}>{t.title}</h3>
                             <div className="tl__org">{t.org}</div>
                             <ul className="tl__points">
                                 {t.points.map((p) => (
@@ -646,7 +647,9 @@ function PipelineCard() {
                     <div key={s.tag} className="pipe__row">
                         <span className="pipe__node">{String(i + 1).padStart(2, "0")}</span>
                         <span className="pipe__body">
-                            <span className="pipe__title">{s.title}</span>
+                            <span className="pipe__title" style={{ "--c": accent(i) }}>
+                                {s.title}
+                            </span>
                             <span className="pipe__sub">{s.sub}</span>
                         </span>
                         {s.spark ? (
@@ -718,27 +721,34 @@ export function About() {
 
                 <div className="about__text">
                     <p className="about__lead" data-reveal>
-                        I'm Naman — a CS grad from VIT Bhopal who genuinely enjoys figuring out how things work end to end.
+                        I'm <em className="grad-text">Naman</em> — a CS grad from VIT Bhopal who genuinely enjoys figuring out
+                        how things work end to end.
                     </p>
                     <p data-reveal>
                         Not just writing the feature, but understanding what happens after you push to main. That curiosity
                         is what pulled me toward both full-stack development and DevOps.
                     </p>
                     <p data-reveal>
-                        I've built and shipped four real web apps — <strong>KundaliGyan, MentorOne, BloodBridge and WealthIn</strong> —
+                        I've built and shipped four real web apps — <strong style={{ "--c": accent(0) }}>KundaliGyan</strong>,{" "}
+                        <strong style={{ "--c": accent(1) }}>MentorOne</strong>, <strong style={{ "--c": accent(2) }}>BloodBridge</strong> and{" "}
+                        <strong style={{ "--c": accent(3) }}>WealthIn</strong> —
                         with actual users, real payment flows, and deployments I manage myself on Ubuntu VPS and AWS. I set
                         them up that way on purpose, because clicking "deploy" on a PaaS felt like skipping the interesting part.
                     </p>
                     <p data-reveal>
-                        These days I'm going deep on the infrastructure side — Terraform instead of clicking through the
-                        console, Ansible for server config, Docker and Kubernetes for running things, and GitHub Actions
-                        pipelines that build, scan and deploy on their own. Prometheus and Grafana keep an eye on it all.
+                        These days I'm going deep on the infrastructure side — <strong style={{ "--c": accent(4) }}>Terraform</strong>{" "}
+                        instead of clicking through the console, <strong style={{ "--c": accent(6) }}>Ansible</strong> for server
+                        config, <strong style={{ "--c": accent(5) }}>Docker and Kubernetes</strong> for running things, and{" "}
+                        <strong style={{ "--c": accent(8) }}>GitHub Actions</strong> pipelines that build, scan and deploy on their
+                        own. <strong style={{ "--c": accent(7) }}>Prometheus and Grafana</strong> keep an eye on it all.
                     </p>
                     <div className="about__facts" data-reveal>
-                        {facts.map(([k, v]) => (
+                        {facts.map(([k, v], i) => (
                             <div key={k} className="fact">
                                 <span className="fact__k">{k}</span>
-                                <span className="fact__v">{v}</span>
+                                <span className="fact__v" style={{ "--c": accent([1, 3, 9, 6][i]) }}>
+                                    {v}
+                                </span>
                             </div>
                         ))}
                     </div>

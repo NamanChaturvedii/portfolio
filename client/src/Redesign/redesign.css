@@ -115,7 +115,8 @@ em {
 }
 
 .shead__title em,
-.contact__title em {
+.contact__title em,
+.grad-text {
     background: var(--grad);
     background-size: 200% 100%;
     -webkit-background-clip: text;
@@ -2468,4 +2469,23 @@ body.has-cursor.cursor-on .cursor-ring {
         translate: none;
         filter: none;
     }
+}
+
+/* Per-item accent colours, set via --c on the element or an ancestor */
+
+.project__head h3,
+.tl__card h3,
+.pipe__title,
+.about__text strong,
+.fact__v {
+    color: var(--c, var(--text));
+}
+
+.project:hover .project__link {
+    border-color: var(--c, var(--text));
+    background: var(--c, var(--text));
+}
+
+.project__num {
+    color: var(--c, var(--text));
 }
