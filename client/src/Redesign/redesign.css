@@ -574,7 +574,7 @@ body.has-cursor.cursor-on .cursor-ring {
     flex-direction: column;
     justify-content: center;
     padding: 0 28px;
-    background: rgba(5, 5, 10, 0.97);
+    background: var(--bg);
     clip-path: circle(0 at calc(100% - 46px) 42px);
     transition: clip-path 0.8s var(--ease-io);
     pointer-events: none;
@@ -587,14 +587,18 @@ body.has-cursor.cursor-on .cursor-ring {
 
 .menu li {
     overflow: hidden;
+    border-bottom: 1px solid var(--border);
 }
 
 .menu button {
     display: flex;
     align-items: baseline;
     gap: 14px;
-    font: 600 clamp(40px, 11vw, 64px) / 1.15 var(--display);
-    letter-spacing: -0.03em;
+    width: 100%;
+    padding: 14px 0;
+    font: 600 clamp(24px, 7vw, 34px) / 1.2 var(--display);
+    letter-spacing: -0.02em;
+    text-align: left;
     translate: 0 100%;
     transition: translate 0.7s var(--ease);
 }
@@ -2480,6 +2484,45 @@ body.has-cursor.cursor-on .cursor-ring {
 
     .tl__card {
         padding: 20px 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero__actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .hero__actions .dropdown,
+    .hero__actions .magnetic {
+        display: block;
+        width: 100%;
+    }
+
+    .hero__actions .btn {
+        justify-content: center;
+        width: 100%;
+        padding: 14px 12px;
+        font-size: 14.5px;
+    }
+
+    .hero__actions .link-underline {
+        grid-column: 1 / -1;
+        justify-content: center;
+        min-height: 46px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text);
+    }
+
+    .hero__actions .link-underline::after {
+        display: none;
+    }
+
+    .about__media {
+        display: none;
     }
 }
 

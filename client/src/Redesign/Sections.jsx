@@ -215,6 +215,8 @@ function Portrait({ start }) {
     const imgRef = useRef(null);
     const rafRef = useRef(0);
     const [assembled, setAssembled] = useState(false);
+    // On phones the portrait sits below the fold, so wait until it's on screen before assembling.
+    const [viewRef, inView] = useInView(0.6);
 
     const play = useCallback(() => {
         const frame = frameRef.current;
@@ -256,7 +258,7 @@ function Portrait({ start }) {
     }, []);
 
     useEffect(() => {
-        if (!start) return;
+        if (!start || !inView) return;
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
             setAssembled(true);
             return;
@@ -273,10 +275,11 @@ function Portrait({ start }) {
             img.removeEventListener("load", go);
             cancelAnimationFrame(rafRef.current);
         };
-    }, [start, play]);
+    }, [start, inView, play]);
 
     return (
         <div
+            ref={viewRef}
             className={`portrait ${assembled ? "is-assembled" : ""}`}
             data-cursor={assembled ? "Replay" : undefined}
             onClick={() => assembled && play()}
