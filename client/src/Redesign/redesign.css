@@ -1045,10 +1045,38 @@ body.has-cursor.cursor-on .cursor-ring {
     animation: angle 6s linear infinite;
 }
 
+.portrait__ring {
+    opacity: 0;
+    transition: opacity 1.2s var(--ease);
+}
+
 .portrait__glow {
     inset: -6px;
-    opacity: 0.5;
+    opacity: 0;
     filter: blur(36px);
+    transition: opacity 1.6s var(--ease);
+}
+
+.portrait.is-assembled .portrait__ring {
+    opacity: 1;
+}
+
+.portrait.is-assembled .portrait__glow {
+    opacity: 0.5;
+}
+
+.portrait__canvas {
+    position: absolute;
+    top: -35%;
+    left: -35%;
+    width: 170%;
+    height: 170%;
+    pointer-events: none;
+    transition: opacity 1s var(--ease);
+}
+
+.portrait.is-assembled .portrait__canvas {
+    opacity: 0;
 }
 
 @keyframes angle {
@@ -1060,6 +1088,11 @@ body.has-cursor.cursor-on .cursor-ring {
 .portrait__frame {
     inset: 0;
     overflow: hidden;
+    background: transparent;
+    transition: background 1s;
+}
+
+.portrait.is-assembled .portrait__frame {
     background: #0d0d16;
 }
 
@@ -1068,13 +1101,20 @@ body.has-cursor.cursor-on .cursor-ring {
     height: 100%;
     object-fit: cover;
     object-position: 50% 20%;
-    scale: 1.08;
-    translate: calc(var(--px, 0) * -14px) calc(var(--py, 0) * -14px);
-    transition: translate 0.6s var(--ease), scale 1.2s var(--ease);
+    opacity: 0;
+    scale: 1.04;
+    filter: grayscale(1) contrast(1.08);
+    translate: calc(var(--px, 0) * -10px) calc(var(--py, 0) * -10px);
+    transition: opacity 1s var(--ease), filter 0.9s var(--ease), translate 0.6s var(--ease), scale 1.2s var(--ease);
 }
 
-.portrait:hover .portrait__frame img {
-    scale: 1.13;
+.portrait.is-assembled .portrait__frame img {
+    opacity: 1;
+}
+
+.portrait.is-assembled:hover .portrait__frame img {
+    scale: 1.09;
+    filter: grayscale(0) contrast(1);
 }
 
 .portrait__badge {

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import data from "../data/index.json";
 import { SpotCard, Magnetic } from "./Effects";
 import { useInView, useCountUp, scrollToId } from "./hooks";
@@ -158,7 +158,152 @@ function SectionHead({ num, kicker, title, children }) {
     );
 }
 
-export function Hero() {
+const PORTRAIT_SRC = "./img/orname1.JPG";
+// Canvas extends this fraction beyond the frame on every side so pieces can fly in from outside it.
+const SCATTER_PAD = 0.35;
+
+function buildParticles(img, fw, fh) {
+    const gap = fw < 360 ? 4 : 5;
+    const cols = Math.floor(fw / gap);
+    const rows = Math.floor(fh / gap);
+    const off = document.createElement("canvas");
+    off.width = cols;
+    off.height = rows;
+    const octx = off.getContext("2d", { willReadFrequently: true });
+    const scale = Math.max(cols / img.naturalWidth, rows / img.naturalHeight);
+    const dw = img.naturalWidth * scale;
+    const dh = img.naturalHeight * scale;
+    octx.drawImage(img, (cols - dw) * 0.5, (rows - dh) * 0.2, dw, dh);
+    const px = octx.getImageData(0, 0, cols, rows).data;
+
+    const ox = fw * SCATTER_PAD;
+    const oy = fh * SCATTER_PAD;
+    const cw = fw + ox * 2;
+    const ch = fh + oy * 2;
+    const r = fw / 2;
+    const spread = Math.min(cw, ch) / 2;
+    const buckets = Array.from({ length: 16 }, () => []);
+
+    for (let y = 0; y < rows; y++) {
+        for (let x = 0; x < cols; x++) {
+            const cx = x * gap + gap / 2;
+            const cy = y * gap + gap / 2;
+            // Skip pixels outside the arch's rounded top.
+            if (cy < r && (cx - r) ** 2 + (cy - r) ** 2 > r * r) continue;
+            const i = (y * cols + x) * 4;
+            const lum = (0.299 * px[i] + 0.587 * px[i + 1] + 0.114 * px[i + 2]) / 255;
+            const level = Math.round(Math.min(1, Math.max(0, (lum - 0.5) * 1.3 + 0.53)) * 15);
+            const angle = Math.random() * Math.PI * 2;
+            const dist = (0.35 + Math.random() * 0.65) * spread;
+            buckets[level].push({
+                tx: ox + x * gap,
+                ty: oy + y * gap,
+                sx: ox + fw / 2 + Math.cos(angle) * dist,
+                sy: oy + fh / 2 + Math.sin(angle) * dist,
+                delay: Math.random() * 650 + (y / rows) * 550,
+            });
+        }
+    }
+    return { buckets, gap, cw, ch };
+}
+
+function Portrait({ start }) {
+    const frameRef = useRef(null);
+    const canvasRef = useRef(null);
+    const imgRef = useRef(null);
+    const rafRef = useRef(0);
+    const [assembled, setAssembled] = useState(false);
+
+    const play = useCallback(() => {
+        const frame = frameRef.current;
+        const canvas = canvasRef.current;
+        const img = imgRef.current;
+        if (!frame || !canvas || !img || !img.naturalWidth) return;
+        cancelAnimationFrame(rafRef.current);
+        setAssembled(false);
+
+        const { buckets, gap, cw, ch } = buildParticles(img, frame.offsetWidth, frame.offsetHeight);
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = cw * dpr;
+        canvas.height = ch * dpr;
+        const ctx = canvas.getContext("2d");
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        const DUR = 1500;
+        const total = 1200 + DUR;
+        const t0 = performance.now();
+        const draw = (t) => {
+            const el = t - t0;
+            ctx.clearRect(0, 0, cw, ch);
+            for (let l = 0; l < 16; l++) {
+                const v = Math.round((l / 15) * 255);
+                ctx.fillStyle = `rgb(${v},${v},${v})`;
+                const list = buckets[l];
+                for (let i = 0; i < list.length; i++) {
+                    const p = list[i];
+                    const k = Math.min(1, Math.max(0, (el - p.delay) / DUR));
+                    const e = 1 - Math.pow(1 - k, 4);
+                    const s = gap * (0.35 + 0.6 * e);
+                    ctx.fillRect(p.sx + (p.tx - p.sx) * e, p.sy + (p.ty - p.sy) * e, s, s);
+                }
+            }
+            if (el < total) rafRef.current = requestAnimationFrame(draw);
+            else setAssembled(true);
+        };
+        rafRef.current = requestAnimationFrame(draw);
+    }, []);
+
+    useEffect(() => {
+        if (!start) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            setAssembled(true);
+            return;
+        }
+        const img = imgRef.current;
+        let timer;
+        const go = () => {
+            timer = setTimeout(play, 350);
+        };
+        if (img.complete && img.naturalWidth) go();
+        else img.addEventListener("load", go, { once: true });
+        return () => {
+            clearTimeout(timer);
+            img.removeEventListener("load", go);
+            cancelAnimationFrame(rafRef.current);
+        };
+    }, [start, play]);
+
+    return (
+        <div
+            className={`portrait ${assembled ? "is-assembled" : ""}`}
+            data-cursor={assembled ? "Replay" : undefined}
+            onClick={() => assembled && play()}
+        >
+            <div className="portrait__orbit" />
+            <div className="portrait__glow" />
+            <div className="portrait__ring" />
+            <div className="portrait__frame" ref={frameRef}>
+                <img ref={imgRef} src={PORTRAIT_SRC} alt="Naman Chaturvedi" />
+            </div>
+            <canvas ref={canvasRef} className="portrait__canvas" aria-hidden="true" />
+            <div className="portrait__badge">
+                <span className="portrait__badge-icon">AWS</span>
+                <span>
+                    <strong>Solutions Architect</strong>
+                    <small>Associate · Certified</small>
+                </span>
+            </div>
+            {CHIPS.map((c, i) => (
+                <span key={c.t} className="chip-float" style={{ "--x": c.x, "--y": c.y, "--depth": c.d, "--fd": `${i * -1.3}s` }}>
+                    <i style={{ background: c.c, color: c.c }} />
+                    {c.t}
+                </span>
+            ))}
+        </div>
+    );
+}
+
+export function Hero({ loaded }) {
     const [role, setRole] = useState(0);
     const [open, setOpen] = useState(false);
     const ddRef = useRef(null);
@@ -271,31 +416,7 @@ export function Hero() {
             </div>
 
             <div className="hero__visual anim" style={{ "--d": "450ms" }}>
-                <div className="portrait">
-                    <div className="portrait__orbit" />
-                    <div className="portrait__glow" />
-                    <div className="portrait__ring" />
-                    <div className="portrait__frame">
-                        <img src="./img/orname1.JPG" alt="Naman Chaturvedi" />
-                    </div>
-                    <div className="portrait__badge">
-                        <span className="portrait__badge-icon">AWS</span>
-                        <span>
-                            <strong>Solutions Architect</strong>
-                            <small>Associate · Certified</small>
-                        </span>
-                    </div>
-                    {CHIPS.map((c, i) => (
-                        <span
-                            key={c.t}
-                            className="chip-float"
-                            style={{ "--x": c.x, "--y": c.y, "--depth": c.d, "--fd": `${i * -1.3}s` }}
-                        >
-                            <i style={{ background: c.c, color: c.c }} />
-                            {c.t}
-                        </span>
-                    ))}
-                </div>
+                <Portrait start={loaded} />
             </div>
 
             <button className="scroll-cue" onClick={() => scrollToId("expertise")} aria-label="Scroll to expertise">

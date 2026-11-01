@@ -29,7 +29,7 @@ export default function Redesign() {
             <ScrollProgress />
             <Nav />
             <main>
-                <Hero />
+                <Hero loaded={phase !== "loading"} />
                 <Marquee />
                 <Expertise />
                 <Work />
