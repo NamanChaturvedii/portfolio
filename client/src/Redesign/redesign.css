@@ -1453,13 +1453,13 @@ body.has-cursor.cursor-on .cursor-ring {
     border-radius: 14px;
     border: 1px solid var(--border);
     background: rgba(255, 255, 255, 0.05);
-    color: var(--violet-2);
+    color: var(--c, var(--violet-2));
     transition: transform 0.6s var(--ease), background 0.4s, color 0.4s;
 }
 
 .skill:hover .skill__icon {
     transform: rotate(-8deg) scale(1.08);
-    background: var(--grad);
+    background: var(--c, var(--violet-2));
     color: #0a0a12;
 }
 
@@ -1482,6 +1482,7 @@ body.has-cursor.cursor-on .cursor-ring {
 .skill__title {
     font: 600 22px / 1.2 var(--display);
     letter-spacing: -0.02em;
+    color: var(--c, var(--text));
 }
 
 .skill__tagline {
@@ -1514,7 +1515,7 @@ body.has-cursor.cursor-on .cursor-ring {
     position: absolute;
     right: -24px;
     bottom: -34px;
-    color: var(--violet-2);
+    color: var(--c, var(--violet-2));
     opacity: 0.06;
     transform: rotate(-12deg);
     transition: opacity 0.6s var(--ease), transform 0.8s var(--ease), color 0.6s;
@@ -1525,7 +1526,6 @@ body.has-cursor.cursor-on .cursor-ring {
 
 .skill:hover .skill__mark svg {
     opacity: 0.16;
-    color: var(--cyan);
     transform: rotate(0deg) scale(1.08);
 }
 

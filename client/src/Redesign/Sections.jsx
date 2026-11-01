@@ -62,6 +62,7 @@ const SKILL_ICONS = {
 };
 
 const PLATFORM_IDS = new Set(["4", "4a", "4b", "4c"]);
+const SKILL_COLORS = ["#a78bfa", "#22d3ee", "#f472b6", "#fbbf24", "#4ade80", "#60a5fa", "#fb923c", "#f87171", "#2dd4bf", "#c084fc", "#a3e635"];
 const WIDE_CELLS = new Set([0, 4, 6, 9, 10]);
 
 const TIMELINE = [
@@ -467,7 +468,7 @@ export function Expertise() {
                     const chips = tagline ? parts.slice(0, -1) : parts;
                     const platform = PLATFORM_IDS.has(s.id);
                     return (
-                        <div key={s.id} className={`bento__cell ${WIDE_CELLS.has(i) ? "is-wide" : ""}`} data-reveal style={{ "--rd": `${(i % 4) * 80}ms` }}>
+                        <div key={s.id} className={`bento__cell ${WIDE_CELLS.has(i) ? "is-wide" : ""}`} data-reveal style={{ "--rd": `${(i % 4) * 80}ms`, "--c": SKILL_COLORS[i % SKILL_COLORS.length] }}>
                             <SpotCard className="skill">
                                 <div className="skill__top">
                                     <span className="skill__icon">{SKILL_ICONS[s.id]}</span>
