@@ -2101,16 +2101,6 @@ body.has-cursor.cursor-on .cursor-ring {
     margin-top: 40px;
 }
 
-.contact__phone {
-    font: 14px var(--mono);
-    color: var(--muted);
-    transition: color 0.3s;
-}
-
-.contact__phone:hover {
-    color: var(--text);
-}
-
 /* ---------- Footer ---------- */
 
 .footer {

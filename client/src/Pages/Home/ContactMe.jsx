@@ -58,8 +58,6 @@ export default function ContactMe() {
             </div>
             <div style={{fontWeight:"bold",fontSize:"20px"}}>
                 Email: namanchaturvedi58@gmail.com
-                <br />
-                Phone Number: +918769612896
 
             </div>
         </section>

@@ -4,7 +4,6 @@ import { SpotCard, Magnetic } from "./Effects";
 import { useInView, useCountUp, scrollToId } from "./hooks";
 
 const EMAIL = "namanchaturvedi58@gmail.com";
-const PHONE = "+91 87696 12896";
 const CERTS_URL = "https://drive.google.com/drive/folders/1kKFffp0NkT-I_vj_CcRonz1XpWDp6gLT?usp=sharing";
 
 const RESUMES = [
@@ -625,9 +624,6 @@ export function Contact() {
                 </button>
             </div>
             <div className="contact__meta" data-reveal style={{ "--rd": "320ms" }}>
-                <a href="tel:+918769612896" className="contact__phone">
-                    {PHONE}
-                </a>
                 {SOCIALS.map((s) => (
                     <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="link-underline">
                         {s.label}
