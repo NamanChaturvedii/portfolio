@@ -701,6 +701,7 @@ body.has-cursor.cursor-on .cursor-ring {
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    min-height: 44px;
     font-size: 14px;
     color: var(--muted);
     transition: color 0.3s;
@@ -711,7 +712,7 @@ body.has-cursor.cursor-on .cursor-ring {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -3px;
+    bottom: 9px;
     height: 1px;
     background: currentColor;
     transform: scaleX(0);
@@ -2451,6 +2452,58 @@ body.has-cursor.cursor-on .cursor-ring {
         padding: 16px 22px;
         font-size: 15px;
     }
+
+    .pipe {
+        padding: 18px 14px 110px;
+    }
+
+    .pipe__head {
+        flex-wrap: wrap;
+    }
+
+    .pipe__row {
+        gap: 12px;
+        padding: 9px 10px;
+    }
+
+    .pipe__rail {
+        left: 25.5px;
+    }
+
+    .project__body {
+        padding: 18px 18px 22px;
+    }
+
+    .project__head h3 {
+        font-size: 21px;
+    }
+
+    .tl__card {
+        padding: 20px 18px;
+    }
+}
+
+@media (max-width: 400px) {
+    .pipe__tag {
+        display: none;
+    }
+
+    .contact__email {
+        font-size: 14px;
+    }
+}
+
+/* Grid/flex children default to min-width: auto, which lets long unbreakable content push columns past the viewport. */
+.bento__cell,
+.work__cell,
+.about__grid > *,
+.tl > *,
+.hero > * {
+    min-width: 0;
+}
+
+.project__head {
+    flex-wrap: wrap;
 }
 
 @media (prefers-reduced-motion: reduce) {
