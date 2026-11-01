@@ -1845,7 +1845,7 @@ body.has-cursor.cursor-on .cursor-ring {
 
 .about__media {
     position: relative;
-    padding-bottom: 90px;
+    padding-bottom: 190px;
 }
 
 .about__photo {
@@ -1856,26 +1856,14 @@ body.has-cursor.cursor-on .cursor-ring {
     border: 1px solid var(--border);
 }
 
-.about__photo img {
+.about__photo {
+    background: radial-gradient(ellipse at 50% 35%, #12121c, #050508 70%);
+}
+
+.about__photo canvas {
+    display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: 50% 62%;
-    filter: grayscale(0.4) contrast(1.05);
-    transition: filter 0.8s, transform 1.2s var(--ease);
-}
-
-.about__photo:hover img {
-    filter: none;
-    transform: scale(1.04);
-}
-
-.about__photo::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 55%, rgba(5, 5, 10, 0.7));
-    pointer-events: none;
 }
 
 .terminal {
