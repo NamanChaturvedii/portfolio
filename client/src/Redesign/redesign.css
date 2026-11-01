@@ -47,6 +47,7 @@ body {
     color: var(--text);
     font-family: var(--body);
     font-size: 16px;
+    font-weight: 500;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -609,7 +610,7 @@ body.has-cursor.cursor-on .cursor-ring {
 
 .menu__foot {
     margin-top: 40px;
-    font: 14px var(--mono);
+    font: 500 14px var(--mono);
     color: var(--muted);
 }
 
@@ -792,7 +793,7 @@ body.has-cursor.cursor-on .cursor-ring {
 
 .dropdown__sub {
     margin-top: 2px;
-    font: 12px var(--mono);
+    font: 500 12px var(--mono);
     color: var(--muted);
 }
 
@@ -1824,7 +1825,7 @@ body.has-cursor.cursor-on .cursor-ring {
 
 .cert__code {
     margin-top: 2px;
-    font: 12px var(--mono);
+    font: 500 12px var(--mono);
     color: var(--muted);
 }
 
@@ -1880,7 +1881,7 @@ body.has-cursor.cursor-on .cursor-ring {
 }
 
 .pipe__file {
-    font: 12px var(--mono);
+    font: 500 12px var(--mono);
     color: var(--muted);
 }
 
@@ -1975,7 +1976,7 @@ body.has-cursor.cursor-on .cursor-ring {
 
 .pipe__sub {
     overflow: hidden;
-    font: 12px / 1.5 var(--mono);
+    font: 500 12px / 1.5 var(--mono);
     white-space: nowrap;
     text-overflow: ellipsis;
     color: var(--muted);
@@ -2009,7 +2010,7 @@ body.has-cursor.cursor-on .cursor-ring {
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
     box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(139, 92, 246, 0.08);
-    font: 13px / 1.7 var(--mono);
+    font: 500 13px / 1.7 var(--mono);
 }
 
 .terminal__bar {
