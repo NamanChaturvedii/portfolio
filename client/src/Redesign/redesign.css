@@ -1221,10 +1221,6 @@ body.has-cursor.cursor-on .cursor-ring {
     animation-duration: 58s;
 }
 
-.marquee:hover .marquee__track {
-    animation-play-state: paused;
-}
-
 .marquee__item {
     display: inline-flex;
     align-items: center;
