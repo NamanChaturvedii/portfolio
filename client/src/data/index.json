@@ -1,6 +1,42 @@
 {
     "skills": [
         {
+            "id": "4b",
+            "src": "./img/tag-1.png",
+            "title": "CI/CD & GitOps",
+            "description": "Jenkins • Jenkins Shared Library • GitHub Actions • ArgoCD • Helm • Multi-stage Docker Builds • Amazon ECR • A commit ships it, a revert rolls it back"
+        },
+        {
+            "id": "4c",
+            "src": "./img/tag-1.png",
+            "title": "Containers & Orchestration",
+            "description": "Docker • Kubernetes • Amazon EKS • k3s • Helm Charts • Kyverno Guardrails"
+        },
+        {
+            "id": "4a",
+            "src": "./img/tag-1.png",
+            "title": "Infrastructure as Code",
+            "description": "Terraform • Ansible Roles • GitHub Actions for Terraform • Infracost • Spin up for demos, tear down to save cost"
+        },
+        {
+            "id": "4d",
+            "src": "./img/tag-1.png",
+            "title": "DevSecOps",
+            "description": "SonarQube • Trivy • OWASP Dependency-Check • Gitleaks • Security gates on every build • Risky code never makes it to production"
+        },
+        {
+            "id": "4e",
+            "src": "./img/tag-1.png",
+            "title": "Observability & Linux",
+            "description": "Prometheus • Grafana • Loki • Alerting • Linux • Bash • Nginx • SSH • Let's Encrypt • Know when things break before users do"
+        },
+        {
+            "id": "4",
+            "src": "./img/tag-1.png",
+            "title": "Cloud (AWS)",
+            "description": "EC2 • EKS • ECR • S3 • IAM • VPC • RDS • DynamoDB"
+        },
+        {
             "id": "1",
             "src": "./img/product-chain-1.png",
             "title": "Frontend Development",
@@ -17,30 +53,6 @@
             "src": "./img/feather-pen-1.png",
             "title": "Databases & ORM",
             "description": "MongoDB (Mongoose, Atlas) • PostgreSQL • MySQL • Prisma ORM • Supabase • Neon Serverless DB"
-        },
-        {
-            "id": "4",
-            "src": "./img/tag-1.png",
-            "title": "Cloud & Infrastructure",
-            "description": "AWS (EC2, S3, IAM, VPC, RDS, ALB, EKS, ECR) • Ubuntu VPS • SSH • Nginx • PM2 • Certbot • Cloudflare Tunnel • Multi-tier AWS Architecture"
-        },
-        {
-            "id": "4a",
-            "src": "./img/tag-1.png",
-            "title": "Infrastructure as Code",
-            "description": "Terraform • Ansible • S3 Remote State • DynamoDB Locking • Dynamic Inventory • Reusable Modules • No more clicking through the AWS console"
-        },
-        {
-            "id": "4b",
-            "src": "./img/product-chain-1.png",
-            "title": "CI/CD Pipelines",
-            "description": "GitHub Actions • Multi-stage Docker Builds • Trivy Security Scanning • Amazon ECR • Auto Deploy & Rollback • Health Checks • If it's not automated, it's a manual mistake waiting to happen"
-        },
-        {
-            "id": "4c",
-            "src": "./img/feather-pen-2.png",
-            "title": "Containers & Observability",
-            "description": "Docker • Kubernetes (EKS, Kind) • Helm • Pods • Services • Ingress • Prometheus • Grafana • kube-prometheus-stack • Know when things break before users do"
         },
         {
             "id": "5",
@@ -124,7 +136,7 @@
             "link": "View code",
             "link2": "https://github.com/NamanChaturvedii/Infralens-python"
         },
- {
+        {
             "id": "5",
             "src": "./img/port.png",
             "title": "Portfolio App",

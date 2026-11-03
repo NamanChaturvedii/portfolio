@@ -8,14 +8,14 @@ const CERTS_URL = "https://drive.google.com/drive/folders/1kKFffp0NkT-I_vj_CcRon
 
 const RESUMES = [
     {
+        label: "DevOps Resume",
+        sub: "Jenkins · ArgoCD · EKS",
+        href: "https://drive.google.com/file/d/1V_8HUX7Imxce9DdYEj_LAfxt8VNYVi2N/view?usp=sharing",
+    },
+    {
         label: "Full Stack Resume",
         sub: "React · Node.js · AWS",
         href: "https://drive.google.com/file/d/1ys4fJ83C3CC4ME8xQS7NWGuDaspoiJnn/view?usp=sharing",
-    },
-    {
-        label: "DevOps Resume",
-        sub: "Terraform · Docker · K8s",
-        href: "https://drive.google.com/file/d/1mu3cRuDWKqmY6jSJZd_KlNsiEW_spnPa/view?usp=sharing",
     },
 ];
 
@@ -25,13 +25,13 @@ const SOCIALS = [
     { label: "Instagram", href: "https://www.instagram.com/naman_chaturvedi__/" },
 ];
 
-const ROLES = ["Full Stack Developer", "DevOps Engineer", "Cloud Architect", "AI/ML Engineer"];
+const ROLES = ["DevOps Engineer", "Full Stack Developer", "Cloud Engineer", "AI/ML Engineer"];
 
 const CHIPS = [
-    { t: "React", x: "-10%", y: "10%", d: 1.2, c: "#61dafb" },
+    { t: "ArgoCD", x: "-10%", y: "10%", d: 1.2, c: "#fb923c" },
     { t: "Terraform", x: "72%", y: "4%", d: 0.8, c: "#a78bfa" },
     { t: "Kubernetes", x: "78%", y: "52%", d: 1.4, c: "#60a5fa" },
-    { t: "Node.js", x: "-16%", y: "44%", d: 1, c: "#4ade80" },
+    { t: "Jenkins", x: "-16%", y: "44%", d: 1, c: "#f87171" },
     { t: "Docker", x: "60%", y: "90%", d: 0.7, c: "#38bdf8" },
 ];
 
@@ -55,16 +55,19 @@ const SKILL_ICONS = {
     "4a": <Icon><path d="M12 2l10 5-10 5L2 7l10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></Icon>,
     "4b": <Icon><circle cx="6" cy="6" r="2.5" /><circle cx="6" cy="18" r="2.5" /><circle cx="18" cy="8" r="2.5" /><path d="M6 8.5v7M18 10.5c0 4-6 3-11 5.5" /></Icon>,
     "4c": <Icon><path d="M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8M12 13v8" /></Icon>,
+    "4d": <Icon><path d="M12 2l8 3v6c0 5-3.4 9.3-8 11-4.6-1.7-8-6-8-11V5l8-3z" /><path d="M9 12l2 2 4-4" /></Icon>,
+    "4e": <Icon><path d="M3 12h4l3-8 4 16 3-8h4" /></Icon>,
     "5": <Icon><path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 01-12 0V8zM12 18v4" /></Icon>,
     "6": <Icon><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" /></Icon>,
     "7": <Icon><path d="M4 17l6-5-6-5M12 19h8" /></Icon>,
     "8": <Icon><circle cx="12" cy="12" r="9" /><path d="M15.5 8.5l-2 5-5 2 2-5 5-2z" /></Icon>,
 };
 
-const PLATFORM_IDS = new Set(["4", "4a", "4b", "4c"]);
+const PLATFORM_IDS = new Set(["4", "4a", "4b", "4c", "4d", "4e"]);
 const ACCENTS = ["#a78bfa", "#22d3ee", "#f472b6", "#fbbf24", "#4ade80", "#60a5fa", "#fb923c", "#f87171", "#2dd4bf", "#c084fc", "#a3e635"];
 const accent = (i) => ACCENTS[i % ACCENTS.length];
-const WIDE_CELLS = new Set([0, 4, 6, 9, 10]);
+// With 13 cards in a 4-column grid, these three double-width cells make four full rows.
+const WIDE_CELLS = new Set([0, 4, 6]);
 
 const TIMELINE = [
     {
@@ -74,12 +77,12 @@ const TIMELINE = [
         title: "AI/ML Engineer Trainee",
         org: "Coherent Market Insights",
         points: [
-            "Built and ran AI-powered research pipelines that automate market and vendor discovery, classification, and validation, turning live research into structured, client-ready reports.",
-            "Developed a multi-stage AI pipeline that researches markets, identifies consumer and buyer segments, and generates validated survey reports with simulated response data and automated quality checks.",
-            "Automated update and distribution workflows, so non-technical teams get the latest pipeline improvements without manual redeployment.",
-            "Engineered prompt templates and LLM orchestration logic to keep AI outputs consistent and high-quality across varied research domains.",
+            "Worked on a B2B lead-generation platform that helps businesses find the prospects they want, verify contacts, and reach them via email and LinkedIn — live in production on AWS at coherentlead.ai.",
+            "Got hands-on with the production setup: a Node.js API on AWS, PostgreSQL, Redis-backed job queues, and background workers that handle verification, email sending, and mailbox warmup. Also prepared and ran product demos for clients.",
+            "Built AI research pipelines that find and sort markets and vendors, check the results, and turn them into clean reports that clients can use directly.",
+            "Developed a multi-stage pipeline that maps buyer segments and produces survey reports with automatic quality checks.",
         ],
-        tags: ["Python", "Claude API", "AI Pipelines", "Prompt Engineering", "LLM Orchestration", "Automation", "Data Validation"],
+        tags: ["AWS", "Node.js", "PostgreSQL", "Redis", "Job Queues", "Background Workers", "Python", "AI Pipelines"],
     },
     {
         kind: "Education",
@@ -106,13 +109,43 @@ const CERTS = [
 ];
 
 const TECH_A = ["React", "Next.js", "Node.js", "Express", "TypeScript", "Spring Boot", "PostgreSQL", "MongoDB", "Prisma", "Socket.io", "Razorpay", "Claude API"];
-const TECH_B = ["AWS", "Terraform", "Ansible", "Docker", "Kubernetes", "Helm", "GitHub Actions", "Trivy", "Prometheus", "Grafana", "Nginx", "Linux"];
+const TECH_B = ["AWS", "Terraform", "Ansible", "Jenkins", "ArgoCD", "Helm", "Docker", "Kubernetes", "Amazon EKS", "SonarQube", "Trivy", "Prometheus", "Grafana", "Loki", "Nginx", "Linux"];
 
 const TERMINAL = [
-    { c: "whoami", o: "naman — full stack & devops engineer" },
-    { c: "terraform apply -auto-approve", o: "Apply complete! Infrastructure is live." },
+    { c: "whoami", o: "naman — devops & full stack engineer" },
+    { c: "terraform apply -auto-approve", o: "Apply complete! EKS cluster is up." },
+    { c: "argocd app sync portfolio", o: "Synced · Healthy" },
     { c: "kubectl get pods", o: "portfolio-web   1/1   Running" },
-    { c: "git push origin main", o: "✓ pipeline passed · deployed" },
+];
+
+const DEVOPS_PROJECTS = [
+    {
+        title: "DevSecOps CI/CD Pipeline",
+        stack: ["Jenkins", "Docker", "SonarQube", "Trivy", "Gitleaks", "AWS ECR"],
+        points: [
+            "Jenkins set up fully as code with a shared library, so any of my apps can reuse the same pipeline.",
+            "Security checks on every build — SonarQube, Trivy, OWASP Dependency-Check and Gitleaks — so risky code never ships.",
+            "Multi-stage Docker builds keep images lean, with every version stored in Amazon ECR.",
+        ],
+    },
+    {
+        title: "GitOps Platform on Amazon EKS",
+        stack: ["Terraform", "EKS", "ArgoCD", "Helm", "Prometheus", "Grafana", "Loki"],
+        points: [
+            "Terraform for the network and EKS cluster, run via GitHub Actions — up for demos, down to save cost.",
+            "ArgoCD and Helm deploy from Git: a commit ships the app, a revert rolls it back, manual changes undo themselves.",
+            "Monitoring and alerts, Infracost cost previews and Kyverno guardrails — then I broke the cluster on purpose to test recovery.",
+        ],
+    },
+    {
+        title: "Production Server Automation",
+        stack: ["Ansible", "Linux", "k3s", "Nginx", "Let's Encrypt", "AWS S3"],
+        points: [
+            "Ansible roles that turn a fresh Ubuntu server into a secure, ready-to-use machine with a single command.",
+            "My full-stack apps run live on k3s behind Nginx with HTTPS, so there's always a working version online.",
+            "Automatic backups to S3 with tested restores, plus a public status page for uptime.",
+        ],
+    },
 ];
 
 function Letters({ text, delay = 0 }) {
@@ -367,9 +400,9 @@ export function Hero({ loaded }) {
                 </div>
 
                 <p className="hero__desc anim" style={{ "--d": "1050ms" }}>
-                    I like owning the whole thing — writing the app, setting up the infrastructure, and making sure it
-                    actually stays up. I build full-stack web apps, then provision, containerize and ship them with
-                    Terraform, Docker, Kubernetes and pipelines that deploy without anyone babysitting them.
+                    A DevOps engineer who started as a full-stack developer, so I understand both the code and where it
+                    runs. I build secure CI/CD pipelines, deploy to Kubernetes the GitOps way, and manage AWS
+                    infrastructure as code with an eye on cost — taking my own apps from code to a live, monitored deployment.
                 </p>
 
                 <div className="hero__actions anim" style={{ "--d": "1200ms" }}>
@@ -460,8 +493,8 @@ export function Expertise() {
     return (
         <section id="expertise" className="section">
             <SectionHead num="01" kicker="Expertise" title={<>Two crafts, <em>one engineer.</em></>}>
-                I build the product and the platform it runs on — from the first React component to the Terraform that
-                provisions its servers.
+                I build the platform and the product that runs on it — from the Terraform that provisions the cluster to
+                the React app that ships through it.
             </SectionHead>
 
             <div className="bento">
@@ -501,7 +534,8 @@ export function Work() {
         <section id="work" className="section">
             <div className="shead-row">
                 <SectionHead num="02" kicker="Selected work" title={<>Things I've <em>shipped.</em></>}>
-                    Real products with real users, payments and infrastructure — most of them self-hosted and live right now.
+                    The platforms I've built to ship software safely, and the real products with real users and payments
+                    that run on them.
                 </SectionHead>
                 <div data-reveal>
                     <Magnetic>
@@ -512,6 +546,36 @@ export function Work() {
                 </div>
             </div>
 
+            <h3 className="work__group" data-reveal>
+                <span>Platform</span> DevOps projects
+            </h3>
+            <div className="ops">
+                {DEVOPS_PROJECTS.map((p, i) => (
+                    <div key={p.title} className="work__cell" data-reveal style={{ "--rd": `${i * 100}ms`, "--c": accent(i + 4) }}>
+                        <SpotCard className="ops__card">
+                            <div className="ops__top">
+                                <span className="ops__num">{String(i + 1).padStart(2, "0")}</span>
+                                <span className="skill__tag is-platform">DevOps</span>
+                            </div>
+                            <h3 className="ops__title">{p.title}</h3>
+                            <ul className="tl__points">
+                                {p.points.map((pt) => (
+                                    <li key={pt}>{pt}</li>
+                                ))}
+                            </ul>
+                            <ul className="tags">
+                                {p.stack.map((s) => (
+                                    <li key={s}>{s}</li>
+                                ))}
+                            </ul>
+                        </SpotCard>
+                    </div>
+                ))}
+            </div>
+
+            <h3 className="work__group" data-reveal>
+                <span>Product</span> Full-stack apps
+            </h3>
             <div className="work">
                 {data.portfolio.map((p, i) => (
                     <div key={p.title} className="work__cell" data-reveal style={{ "--rd": `${(i % 2) * 110}ms`, "--c": accent(i) }}>
@@ -625,19 +689,19 @@ export function Experience() {
 
 const PIPELINE = [
     { title: <code>git push</code>, sub: "main → GitHub", tag: "Code" },
-    { title: "Build · Test · Scan", sub: "GitHub Actions + Trivy", tag: "CI" },
-    { title: "Docker image", sub: "multi-stage → Amazon ECR", tag: "Artifact" },
-    { title: <code>terraform apply</code>, sub: "VPC · ALB · EC2 · RDS", tag: "IaC" },
-    { title: "Deployed", sub: "Kubernetes · Nginx · Ansible", tag: "Run" },
-    { title: "Observed", sub: "Prometheus + Grafana", tag: "Monitor", spark: true },
+    { title: "Jenkins pipeline", sub: "shared library, as code", tag: "CI" },
+    { title: "Security gates", sub: "SonarQube · Trivy · Gitleaks", tag: "DevSecOps" },
+    { title: "Image → ECR", sub: "multi-stage Docker build", tag: "Artifact" },
+    { title: <code>argocd sync</code>, sub: "Helm → Amazon EKS", tag: "GitOps" },
+    { title: "Observed", sub: "Prometheus · Grafana · Loki", tag: "Monitor", spark: true },
 ];
 
 function PipelineCard() {
     return (
-        <div className="pipe" role="img" aria-label="Deployment pipeline: git push, CI build and scan, Docker image, Terraform on AWS, Kubernetes deploy, Prometheus and Grafana monitoring">
+        <div className="pipe" role="img" aria-label="Deployment pipeline: git push, Jenkins build, SonarQube Trivy and Gitleaks security gates, image pushed to ECR, ArgoCD and Helm deploy to EKS, Prometheus Grafana and Loki monitoring">
             <div className="pipe__head">
                 <span className="pipe__file">
-                    .github/workflows/<b>ship.yml</b>
+                    ci/<b>Jenkinsfile</b>
                 </span>
                 <span className="pipe__status">
                     <i />
@@ -739,11 +803,13 @@ export function About() {
                         them up that way on purpose, because clicking "deploy" on a PaaS felt like skipping the interesting part.
                     </p>
                     <p data-reveal>
-                        These days I'm going deep on the infrastructure side — <strong style={{ "--c": accent(4) }}>Terraform</strong>{" "}
-                        instead of clicking through the console, <strong style={{ "--c": accent(6) }}>Ansible</strong> for server
-                        config, <strong style={{ "--c": accent(5) }}>Docker and Kubernetes</strong> for running things, and{" "}
-                        <strong style={{ "--c": accent(8) }}>GitHub Actions</strong> pipelines that build, scan and deploy on their
-                        own. <strong style={{ "--c": accent(7) }}>Prometheus and Grafana</strong> keep an eye on it all.
+                        Now I run things the way production should run. <strong style={{ "--c": accent(7) }}>Jenkins</strong> pipelines
+                        with <strong style={{ "--c": accent(2) }}>SonarQube, Trivy and Gitleaks</strong> gates, images in ECR, and{" "}
+                        <strong style={{ "--c": accent(6) }}>ArgoCD with Helm</strong> deploying to EKS straight from Git — a commit
+                        ships, a revert rolls back. <strong style={{ "--c": accent(4) }}>Terraform</strong> builds the cluster and tears
+                        it down to save cost, <strong style={{ "--c": accent(8) }}>Ansible</strong> turns a fresh server into a secure
+                        one in a single command, and <strong style={{ "--c": accent(5) }}>Prometheus, Grafana and Loki</strong> keep
+                        watch.
                     </p>
                     <div className="about__facts" data-reveal>
                         {facts.map(([k, v], i) => (
