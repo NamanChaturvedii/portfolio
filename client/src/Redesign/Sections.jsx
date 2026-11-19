@@ -10,7 +10,7 @@ const RESUMES = [
     {
         label: "DevOps Resume",
         sub: "Jenkins · ArgoCD · EKS",
-        href: "https://drive.google.com/file/d/1V_8HUX7Imxce9DdYEj_LAfxt8VNYVi2N/view?usp=sharing",
+        href: "https://drive.google.com/file/d/1m6Lp-atB1XBBYZWq7_6bXMOnHyg47T2e/view?usp=sharing",
     },
     {
         label: "Full Stack Resume",
