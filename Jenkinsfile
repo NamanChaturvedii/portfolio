@@ -27,23 +27,26 @@ pipeline {
                 '''
             }
         }
+
         stage('Dependency Scan (OWASP)') {
             steps {
                 withCredentials([string(credentialsId: 'nvd-api-key', variable: 'NVD_KEY')]) {
-                    sh '''
-                        mkdir -p $HOME/owasp-data
-                        docker run --rm -u $(id -u):$(id -g) \
-                          -v "$WORKSPACE:/src" \
-                          -v "$HOME/owasp-data:/usr/share/dependency-check/data" \
-                          owasp/dependency-check:latest \
-                          --scan /src/client \
-                          --project portfolio \
-                          --format HTML --format JSON \
-                          --out /src/reports \
-                          --nvdApiKey "$NVD_KEY" \
-                          --failOnCVSS 9 \
-                          --disableYarnAudit
-                    '''
+                    catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
+                        sh '''
+                            mkdir -p $HOME/owasp-data
+                            docker run --rm -u $(id -u):$(id -g) \
+                              -v "$WORKSPACE:/src" \
+                              -v "$HOME/owasp-data:/usr/share/dependency-check/data" \
+                              owasp/dependency-check:latest \
+                              --scan /src/client \
+                              --project portfolio \
+                              --format HTML --format JSON \
+                              --out /src/reports \
+                              --nvdApiKey "$NVD_KEY" \
+                              --failOnCVSS 9 \
+                              --disableYarnAudit
+                        '''
+                    }
                 }
             }
             post {
@@ -78,6 +81,23 @@ pipeline {
             }
         }
 
+        stage('Image Scan (Trivy)') {
+            steps {
+                sh '''
+                    mkdir -p $HOME/trivy-cache
+                    docker run --rm \
+                      -v /var/run/docker.sock:/var/run/docker.sock \
+                      -v $HOME/trivy-cache:/root/.cache/ \
+                      aquasec/trivy:latest image \
+                      --severity HIGH,CRITICAL \
+                      --ignore-unfixed \
+                      --exit-code 1 \
+                      --no-progress \
+                      $IMAGE_NAME:$IMAGE_TAG
+                '''
+            }
+        }
+
         stage('Smoke Test') {
             steps {
                 sh '''
@@ -96,6 +116,9 @@ pipeline {
         }
         success {
             echo "Build #${env.BUILD_NUMBER} passed: image ${IMAGE_NAME}:${IMAGE_TAG} is healthy"
+        }
+        unstable {
+            echo "Build #${env.BUILD_NUMBER} unstable: check the OWASP report in Build Artifacts"
         }
         failure {
             echo "Build #${env.BUILD_NUMBER} failed: check the stage logs above"
