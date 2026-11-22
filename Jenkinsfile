@@ -11,7 +11,8 @@ pipeline {
         IMAGE_TAG  = "${env.BUILD_NUMBER}"
     }
 
-     stage('Checkout') {
+    stages {
+        stage('Checkout') {
             steps {
                 checkout scm
                 sh 'git clean -fdx'
