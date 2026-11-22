@@ -27,6 +27,31 @@ pipeline {
                 '''
             }
         }
+        stage('Dependency Scan (OWASP)') {
+            steps {
+                withCredentials([string(credentialsId: 'nvd-api-key', variable: 'NVD_KEY')]) {
+                    sh '''
+                        mkdir -p $HOME/owasp-data
+                        docker run --rm -u $(id -u):$(id -g) \
+                          -v "$WORKSPACE:/src" \
+                          -v "$HOME/owasp-data:/usr/share/dependency-check/data" \
+                          owasp/dependency-check:latest \
+                          --scan /src/client \
+                          --project portfolio \
+                          --format HTML --format JSON \
+                          --out /src/reports \
+                          --nvdApiKey "$NVD_KEY" \
+                          --failOnCVSS 9 \
+                          --disableYarnAudit
+                    '''
+                }
+            }
+            post {
+                always {
+                    archiveArtifacts artifacts: 'reports/*', allowEmptyArchive: true
+                }
+            }
+        }
 
         stage('SonarQube Analysis') {
             environment {
