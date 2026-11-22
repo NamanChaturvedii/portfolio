@@ -128,13 +128,19 @@ pipeline {
             sh 'docker rm -f portfolio-smoke || true'
         }
         success {
-            echo "Build #${env.BUILD_NUMBER} passed: ${ECR_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG} pushed"
+            withCredentials([string(credentialsId: 'slack-webhook', variable: 'SLACK_WEBHOOK')]) {
+                sh 'python3 ci/notify.py success || true'
+            }
         }
         unstable {
-            echo "Build #${env.BUILD_NUMBER} unstable: check the OWASP report in Build Artifacts"
+            withCredentials([string(credentialsId: 'slack-webhook', variable: 'SLACK_WEBHOOK')]) {
+                sh 'python3 ci/notify.py unstable || true'
+            }
         }
         failure {
-            echo "Build #${env.BUILD_NUMBER} failed: check the stage logs above"
+            withCredentials([string(credentialsId: 'slack-webhook', variable: 'SLACK_WEBHOOK')]) {
+                sh 'python3 ci/notify.py failure || true'
+            }
         }
     }
 }
