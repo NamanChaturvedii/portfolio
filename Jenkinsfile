@@ -18,6 +18,16 @@ pipeline {
             }
         }
 
+        stage('Secret Scan (Gitleaks)') {
+            steps {
+                sh '''
+                    docker run --rm -v "$WORKSPACE:/repo" \
+                      ghcr.io/gitleaks/gitleaks:latest \
+                      dir /repo --redact -v
+                '''
+            }
+        }
+
         stage('SonarQube Analysis') {
             environment {
                 SCANNER_HOME = tool 'sonar-scanner'
