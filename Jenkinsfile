@@ -7,8 +7,9 @@ pipeline {
     }
 
     environment {
-        IMAGE_NAME = 'portfolio'
-        IMAGE_TAG  = "${env.BUILD_NUMBER}"
+        IMAGE_NAME   = 'portfolio'
+        IMAGE_TAG    = "${env.BUILD_NUMBER}"
+        ECR_REGISTRY = '287629436195.dkr.ecr.ap-south-1.amazonaws.com'
     }
 
     stages {
@@ -109,6 +110,17 @@ pipeline {
                 '''
             }
         }
+
+        stage('Push to ECR') {
+            steps {
+                sh '''
+                    aws ecr get-login-password --region ap-south-1 | \
+                      docker login --username AWS --password-stdin $ECR_REGISTRY
+                    docker tag $IMAGE_NAME:$IMAGE_TAG $ECR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG
+                    docker push $ECR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG
+                '''
+            }
+        }
     }
 
     post {
@@ -116,7 +128,7 @@ pipeline {
             sh 'docker rm -f portfolio-smoke || true'
         }
         success {
-            echo "Build #${env.BUILD_NUMBER} passed: image ${IMAGE_NAME}:${IMAGE_TAG} is healthy"
+            echo "Build #${env.BUILD_NUMBER} passed: ${ECR_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG} pushed"
         }
         unstable {
             echo "Build #${env.BUILD_NUMBER} unstable: check the OWASP report in Build Artifacts"
